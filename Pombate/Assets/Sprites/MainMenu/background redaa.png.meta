@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a9cab931bee1bf6409e5e272d01e1250
+guid: fd9699d0a9d2c5c4598e0b2cdc059925
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5462504639957148236
-    second: background menu-Photoroom_0
+      213: 1045010176408356386
+    second: background redaa_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: background menu-Photoroom_0
+      name: background redaa_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4bd5e67b8f84134b0800000000000000
-      internalID: -5462504639957148236
+      spriteID: 2260d7ff73f908e00800000000000000
+      internalID: 1045010176408356386
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      background menu-Photoroom_0: -5462504639957148236
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

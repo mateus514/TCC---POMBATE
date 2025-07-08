@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
 
         animator.SetBool(MovendoHash, horizontalInput != 0);
         animator.SetBool(PulandoHash, !estaNoChao);
+        
     }
 
     void FixedUpdate()

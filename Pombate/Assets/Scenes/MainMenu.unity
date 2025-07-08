@@ -185,8 +185,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294630234
-  m_fontColor: {r: 0.3529412, g: 0.8588236, b: 0.9803922, a: 1}
+    rgba: 4278235903
+  m_fontColor: {r: 1, g: 0.6987091, b: 0, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -323,8 +323,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294630234
-  m_fontColor: {r: 0.3529412, g: 0.8588236, b: 0.9803922, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -632,8 +632,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294630234
-  m_fontColor: {r: 0.3529412, g: 0.8588236, b: 0.9803922, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -887,8 +887,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294630234
-  m_fontColor: {r: 0.3529412, g: 0.8588236, b: 0.9803922, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -1293,7 +1293,7 @@ Transform:
   m_GameObject: {fileID: 1690088015}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7493, y: -7.6, z: 0}
+  m_LocalPosition: {x: -4.2, y: -7.54, z: 0}
   m_LocalScale: {x: 2.2086837, y: 2.2086837, z: 2.2086837}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1390,7 +1390,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5462504639957148236, guid: a9cab931bee1bf6409e5e272d01e1250, type: 3}
+  m_Sprite: {fileID: -5147709685397005261, guid: a26d89886601cb84cab45e50ba85d56d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1410,8 +1410,8 @@ Transform:
   m_GameObject: {fileID: 1708440932}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.006, y: 0.0054, z: 0}
-  m_LocalScale: {x: 2.0839221, y: 2.0839221, z: 2.0839221}
+  m_LocalPosition: {x: -0.0105, y: -0.0164, z: 0}
+  m_LocalScale: {x: 2.0513656, y: 2.0508678, z: 2.0839221}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
