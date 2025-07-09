@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 
         estaNoChao = Physics2D.OverlapCircle(peDoPersonagem.position, 0.2f, chaoLayer);
 
-        animator.SetBool(MovendoHash, horizontalInput != 0);
+        animator.SetBool(MovendoHash, horizontalInput != 0 && estaNoChao);
         animator.SetBool(PulandoHash, !estaNoChao);
         
     }
