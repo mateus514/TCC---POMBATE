@@ -632,9 +632,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3438f1f34ba5e442b59b8411c1f92e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 789887800996942141, guid: 12b35df7255c2f34f8d0b48b0969d78a, type: 3}
+  bulletPrefab: {fileID: 789887800996942141, guid: 21e23ee75dc86b6478c20d24b166f1cb, type: 3}
   firePoint: {fileID: 1068643221}
   bulletForce: 20
+  maxBullets: 6
 --- !u!1 &1401830461
 GameObject:
   m_ObjectHideFlags: 0
