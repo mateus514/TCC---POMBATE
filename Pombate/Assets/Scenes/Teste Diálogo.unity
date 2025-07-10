@@ -280,7 +280,6 @@ GameObject:
   - component: {fileID: 228903572}
   - component: {fileID: 228903574}
   - component: {fileID: 228903575}
-  - component: {fileID: 228903576}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -435,24 +434,6 @@ MonoBehaviour:
   Sprite: {fileID: 785934594}
   Stretch: 0.015
   squashParent: {fileID: 0}
---- !u!114 &228903576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228903568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5b764865af2406468c9ba3747deebca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    dialogueLines:
-    - character:
-        name: Pombo
-        icon: {fileID: -1545765296860906538, guid: 8ac3a8101a2a5234aa5b62003b82aaee, type: 3}
-      line: prupru
 --- !u!1 &402462382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,6 +1142,12 @@ MonoBehaviour:
         name: Chefinho
         icon: {fileID: -7441984854685431606, guid: 4594b0f733f25b84c85739d6034d9c2c, type: 3}
       line: Imundo, preciso de um-burp- favor!
+    - character:
+        name: Pombasso
+        icon: {fileID: -1545765296860906538, guid: 8ac3a8101a2a5234aa5b62003b82aaee, type: 3}
+      line: 'prupruru
+
+'
 --- !u!61 &971172236
 BoxCollider2D:
   m_ObjectHideFlags: 0
