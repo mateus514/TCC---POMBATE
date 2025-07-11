@@ -6,16 +6,21 @@ public class BulletController : MonoBehaviour
     public Transform firePoint;
     public float bulletForce = 20f;
 
-    [SerializeField] private int maxBullets = 6; // Ajustável no Inspector
+    [SerializeField] private int maxBullets = 6;
     private int currentBullets;
 
     void Start()
     {
-        currentBullets = maxBullets; // Começa com todas as balas
+        currentBullets = maxBullets;
     }
 
     void Update()
     {
+        bool emDialogo = DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive;
+
+        if (emDialogo)
+            return;
+
         if (Input.GetButtonDown("Fire1") && currentBullets > 0)
         {
             Shoot();

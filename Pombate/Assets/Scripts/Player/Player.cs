@@ -36,6 +36,17 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        bool emDialogo = DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive;
+
+        if (emDialogo)
+        {
+            horizontalInput = 0;
+            weaponParent.PointerPosition = transform.position;
+            animator.SetBool(MovendoHash, false);
+            animator.SetBool(PulandoHash, false);
+            return;
+        }
+
         pointerInput = GetPointerInput();
         weaponParent.PointerPosition = pointerInput;
 
@@ -50,12 +61,19 @@ public class Player : MonoBehaviour
 
         animator.SetBool(MovendoHash, horizontalInput != 0 && estaNoChao);
         animator.SetBool(PulandoHash, !estaNoChao);
-        
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizontalInput * velocidade, rb.linearVelocity.y);
+        bool emDialogo = DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive;
+
+        if (emDialogo)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            return;
+        }
+
+        rb.velocity = new Vector2(horizontalInput * velocidade, rb.velocity.y);
     }
 
     private Vector2 GetPointerInput()

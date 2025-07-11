@@ -6,9 +6,12 @@ public class WeaponParent : MonoBehaviour
 {
     public SpriteRenderer characterRenderer, weaponRenderer;
     public Vector2 PointerPosition { get; set; }
-   
+
     void Update()
     {
+        if (DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive)
+            return;
+
         Vector2 direction = (PointerPosition - (Vector2)transform.position).normalized;
         transform.right = direction;
 
