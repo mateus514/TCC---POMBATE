@@ -17,21 +17,19 @@ public class Player : MonoBehaviour
     [SerializeField] private InputActionReference pointerPosition;
 
     private Vector2 pointerInput;
-
     private bool estaNoChao;
 
     private Animator animator;
-
     private WeaponParent weaponParent;
 
-    private int MovendoHash = Animator.StringToHash("Movendo");
-    private int PulandoHash = Animator.StringToHash("Pulando");
+    private enum State { idle, running, jump }
+    private State state = State.idle;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         weaponParent = GetComponentInChildren<WeaponParent>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -42,15 +40,14 @@ public class Player : MonoBehaviour
         {
             horizontalInput = 0;
             weaponParent.PointerPosition = transform.position;
-            animator.SetBool(MovendoHash, false);
-            animator.SetBool(PulandoHash, false);
+            SetState(State.idle);
             return;
         }
 
         pointerInput = GetPointerInput();
         weaponParent.PointerPosition = pointerInput;
 
-        horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.Space) && estaNoChao)
         {
@@ -59,8 +56,7 @@ public class Player : MonoBehaviour
 
         estaNoChao = Physics2D.OverlapCircle(peDoPersonagem.position, 0.2f, chaoLayer);
 
-        animator.SetBool(MovendoHash, horizontalInput != 0 && estaNoChao);
-        animator.SetBool(PulandoHash, !estaNoChao);
+        StateChange();
     }
 
     void FixedUpdate()
@@ -81,7 +77,32 @@ public class Player : MonoBehaviour
         Vector3 mousePos = pointerPosition != null
             ? pointerPosition.action.ReadValue<Vector2>()
             : Mouse.current.position.ReadValue();
+
         mousePos.z = Camera.main.nearClipPlane;
         return Camera.main.ScreenToWorldPoint(mousePos);
+    }
+
+    private void StateChange()
+    {
+        if (!estaNoChao)
+        {
+            SetState(State.jump);
+        }
+        else if (Mathf.Abs(rb.velocity.x) > 0.1f)
+        {
+            SetState(State.running);
+        }
+        else
+        {
+            SetState(State.idle);
+        }
+    }
+
+    private void SetState(State novoEstado)
+    {
+        if (state == novoEstado) return;
+
+        state = novoEstado;
+        animator.SetInteger("state", (int)state);
     }
 }
