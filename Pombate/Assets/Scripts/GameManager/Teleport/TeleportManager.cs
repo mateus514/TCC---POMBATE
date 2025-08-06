@@ -1,23 +1,39 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TeleportManager : MonoBehaviour
 {
-    [Header("Pontos de teleporte")]
-    public Transform tp1;
-    public Transform tp2;
+    [System.Serializable]
+    public class TeleportPair
+    {
+        public Transform entrada;
+        public Transform saida;
+    }
+
+    [Header("Lista de pares de teleporte (entrada → saída)")]
+    public List<TeleportPair> teleportPairs = new List<TeleportPair>();
 
     [Header("Referência ao jogador")]
     public Transform player;
 
-    public void TeleportToTp2()
+    public void TeleportFrom(Transform entrada)
     {
-        if (player != null && tp2 != null)
+        foreach (TeleportPair pair in teleportPairs)
         {
-            player.position = tp2.position;
+            if (pair.entrada == entrada && pair.saida != null)
+            {
+                player.position = pair.saida.position;
+
+                if (player.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
+                {
+                    rb.velocity = Vector2.zero;
+                    rb.angularVelocity = 0f;
+                }
+
+                return;
+            }
         }
-        else
-        {
-            Debug.LogWarning("Player ou tp2 não atribuído!");
-        }
+
+        Debug.LogWarning("Ponto de entrada não encontrado nos pares de teleporte!");
     }
 }

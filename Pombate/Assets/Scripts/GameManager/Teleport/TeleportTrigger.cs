@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class TeleportTrigger : MonoBehaviour
 {
+    [Header("Tag do player")]
+    public string playerTag = "Player";
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(playerTag))
         {
-            FindObjectOfType<TeleportManager>().TeleportToTp2();
+            TeleportManager manager = FindObjectOfType<TeleportManager>();
+            if (manager != null)
+            {
+                manager.TeleportFrom(transform);
+            }
         }
     }
 }
