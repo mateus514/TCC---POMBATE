@@ -28,7 +28,7 @@ public class SquashAndStretch : MonoBehaviour
         squashParent.localScale = Vector3.one;
         squashParent.position = transform.position;
  
-        Vector3 velocity = _rigidbody.velocity;
+        Vector3 velocity = _rigidbody.linearVelocity;
         if (velocity.sqrMagnitude > 0.01f)
         {
             squashParent.rotation = Quaternion.FromToRotation(Vector3.right, velocity);

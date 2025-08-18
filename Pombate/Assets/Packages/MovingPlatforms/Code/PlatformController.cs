@@ -102,7 +102,7 @@ namespace Bundos.MovingPlatforms
         private void MoveToWaypoint(Vector3 waypoint)
         {
             Vector2 direction = (waypoint - transform.position).normalized;
-            rb.velocity = direction * moveSpeed;
+            rb.linearVelocity = direction * moveSpeed;
         }
         private void OnDrawGizmos()
         {

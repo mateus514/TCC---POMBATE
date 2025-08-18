@@ -65,11 +65,11 @@ public class Player : MonoBehaviour
 
         if (emDialogo)
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
             return;
         }
 
-        rb.velocity = new Vector2(horizontalInput * velocidade, rb.velocity.y);
+        rb.linearVelocity = new Vector2(horizontalInput * velocidade, rb.linearVelocity.y);
     }
 
     private Vector2 GetPointerInput()
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
         {
             SetState(State.jump);
         }
-        else if (Mathf.Abs(rb.velocity.x) > 0.1f)
+        else if (Mathf.Abs(rb.linearVelocity.x) > 0.1f)
         {
             SetState(State.running);
         }
