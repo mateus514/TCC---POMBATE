@@ -9,11 +9,11 @@ public class SlowPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerMove player = collision.gameObject.GetComponent<PlayerMove>();
+            Player player = collision.gameObject.GetComponent<Player>();
             if (player != null)
             {
-                player.speed *= multiplicadorVelocidade;
-                player.jumpForce *= multiplicadorPulo;
+                player.velocidade = Mathf.RoundToInt(player.velocidade * multiplicadorVelocidade);
+                player.forcaPulo *= multiplicadorPulo;
             }
         }
     }
@@ -22,11 +22,11 @@ public class SlowPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerMove player = collision.gameObject.GetComponent<PlayerMove>();
+            Player player = collision.gameObject.GetComponent<Player>();
             if (player != null)
             {
-                player.speed /= multiplicadorVelocidade;
-                player.jumpForce /= multiplicadorPulo;
+                player.velocidade = Mathf.RoundToInt(player.velocidade / multiplicadorVelocidade);
+                player.forcaPulo /= multiplicadorPulo;
             }
         }
     }

@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     private float horizontalInput;
     private Rigidbody2D rb;
 
-    [SerializeField] private int velocidade = 5;
-    [SerializeField] private float forcaPulo = 600f;
+    [SerializeField] public int velocidade = 5;
+    [SerializeField] public float forcaPulo = 600f;
 
     [SerializeField] private Transform peDoPersonagem;
     [SerializeField] private LayerMask chaoLayer;
