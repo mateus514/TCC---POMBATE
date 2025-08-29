@@ -106,3 +106,4 @@ public class Player : MonoBehaviour
         animator.SetInteger("state", (int)state);
     }
 }
+
