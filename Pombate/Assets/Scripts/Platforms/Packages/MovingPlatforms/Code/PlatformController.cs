@@ -1,5 +1,7 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Bundos.MovingPlatforms
@@ -138,7 +140,7 @@ namespace Bundos.MovingPlatforms
 
         private bool IsSelected()
         {
-            return UnityEditor.Selection.activeGameObject == transform.gameObject;
+            return Selection.activeGameObject == transform.gameObject;
         }
 
         int mod(int x, int m)
@@ -147,3 +149,4 @@ namespace Bundos.MovingPlatforms
         }
     }
 }
+#endif

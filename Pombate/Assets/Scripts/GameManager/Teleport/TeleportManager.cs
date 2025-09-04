@@ -26,7 +26,7 @@ public class TeleportManager : MonoBehaviour
 
                 if (player.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
                 {
-                    rb.velocity = Vector2.zero;
+                    rb.linearVelocity = Vector2.zero;
                     rb.angularVelocity = 0f;
                 }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MovingPlatform
   - destruir
+  - Restart
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - Chao
   - Water
   - UI
-  - 
+  - Restart
   - 
   - 
   - 
