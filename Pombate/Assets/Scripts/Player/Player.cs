@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -104,6 +105,11 @@ public class Player : MonoBehaviour
 
         state = novoEstado;
         animator.SetInteger("state", (int)state);
+    }
+    public void Morrer()
+    {
+        Scene sceneAtual = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(sceneAtual.name);
     }
 }
 

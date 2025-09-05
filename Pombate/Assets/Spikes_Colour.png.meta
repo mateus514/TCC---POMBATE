@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Spikes_Colour_0: 8304341353701095691
+      Spikes_Colour_1: 134733367963972451
+      Spikes_Colour_2: -8150139954642633894
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
