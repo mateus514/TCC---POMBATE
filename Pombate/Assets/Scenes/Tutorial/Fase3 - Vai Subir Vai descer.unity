@@ -652,6 +652,7 @@ GameObject:
   - component: {fileID: 134934508}
   - component: {fileID: 134934510}
   - component: {fileID: 134934509}
+  - component: {fileID: 134934511}
   m_Layer: 0
   m_Name: Iron_Spike_Alone (8)
   m_TagString: Untagged
@@ -704,7 +705,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -775,6 +776,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &134934511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134934507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &134976320
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +797,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 134976321}
-  - component: {fileID: 134976323}
   - component: {fileID: 134976322}
   m_Layer: 3
   m_Name: Plataformas
@@ -864,28 +876,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &134976323
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134976320}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a2132f18727364b4793935491a943bec, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &190580028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,7 +1128,6 @@ GameObject:
   m_Component:
   - component: {fileID: 228903570}
   - component: {fileID: 228903571}
-  - component: {fileID: 228903573}
   - component: {fileID: 228903572}
   - component: {fileID: 228903574}
   - component: {fileID: 228903575}
@@ -1161,7 +1150,7 @@ Transform:
   m_GameObject: {fileID: 228903568}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.15, y: -3.16, z: 0}
+  m_LocalPosition: {x: -11.638, y: -3.353, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1216,52 +1205,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   pointerPosition: {fileID: 0}
---- !u!61 &228903573
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228903568}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.0009786412, y: -0.0051590092}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.21}
-    newSize: {x: 0.16, y: 0.21}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.16289036, y: 0.19957525}
-  m_EdgeRadius: 0
 --- !u!95 &228903574
 Animator:
   serializedVersion: 7
@@ -1414,6 +1357,7 @@ GameObject:
   - component: {fileID: 307082781}
   - component: {fileID: 307082783}
   - component: {fileID: 307082782}
+  - component: {fileID: 307082784}
   m_Layer: 0
   m_Name: Iron_Spike_Alone (1)
   m_TagString: Untagged
@@ -1466,7 +1410,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1537,6 +1481,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &307082784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307082780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &341734150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,6 +1919,7 @@ GameObject:
   - component: {fileID: 489029403}
   - component: {fileID: 489029405}
   - component: {fileID: 489029404}
+  - component: {fileID: 489029406}
   m_Layer: 0
   m_Name: Iron_Spike (12)
   m_TagString: Untagged
@@ -2015,7 +1972,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2086,6 +2043,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &489029406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489029402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &501982921
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,6 +2066,7 @@ GameObject:
   - component: {fileID: 501982922}
   - component: {fileID: 501982924}
   - component: {fileID: 501982923}
+  - component: {fileID: 501982925}
   m_Layer: 0
   m_Name: Iron_Spike (1)
   m_TagString: Untagged
@@ -2149,7 +2119,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -2220,6 +2190,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &501982925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501982921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &502817998
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,13 +3052,43 @@ PrefabInstance:
     - {fileID: 1378095894145782259, guid: d46d9b3efaa6abf48b3e390866270851, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3829826318686692715, guid: d46d9b3efaa6abf48b3e390866270851, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 600155302}
   m_SourcePrefab: {fileID: 100100000, guid: d46d9b3efaa6abf48b3e390866270851, type: 3}
 --- !u!4 &600155300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5462424926034372355, guid: d46d9b3efaa6abf48b3e390866270851, type: 3}
   m_PrefabInstance: {fileID: 600155299}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &600155301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3829826318686692715, guid: d46d9b3efaa6abf48b3e390866270851, type: 3}
+  m_PrefabInstance: {fileID: 600155299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &600155302
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600155301}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: df1ba00e34a9c3d45816a17d30300888, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &607861021
 GameObject:
   m_ObjectHideFlags: 0
@@ -3088,6 +3100,7 @@ GameObject:
   - component: {fileID: 607861022}
   - component: {fileID: 607861024}
   - component: {fileID: 607861023}
+  - component: {fileID: 607861025}
   m_Layer: 0
   m_Name: Iron_Spike_Alone (7)
   m_TagString: Untagged
@@ -3140,7 +3153,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -3211,6 +3224,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &607861025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607861021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &645072679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3582,7 +3607,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4042421916906253586, guid: 9224973726769534a830238f9741a1c2, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3590,7 +3615,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.22}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &797688051
@@ -3682,6 +3707,7 @@ GameObject:
   - component: {fileID: 817055996}
   - component: {fileID: 817055998}
   - component: {fileID: 817055997}
+  - component: {fileID: 817055999}
   m_Layer: 0
   m_Name: Iron_Spike (5)
   m_TagString: Untagged
@@ -3734,7 +3760,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -3805,6 +3831,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &817055999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817055995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &840433980
 GameObject:
   m_ObjectHideFlags: 0
@@ -3816,6 +3854,7 @@ GameObject:
   - component: {fileID: 840433981}
   - component: {fileID: 840433983}
   - component: {fileID: 840433982}
+  - component: {fileID: 840433984}
   m_Layer: 0
   m_Name: Iron_Spike (6)
   m_TagString: Untagged
@@ -3868,7 +3907,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -3939,6 +3978,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &840433984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840433980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &850504916
 GameObject:
   m_ObjectHideFlags: 0
@@ -4037,6 +4088,7 @@ GameObject:
   - component: {fileID: 940823926}
   - component: {fileID: 940823928}
   - component: {fileID: 940823927}
+  - component: {fileID: 940823929}
   m_Layer: 0
   m_Name: Iron_Spike (3)
   m_TagString: Untagged
@@ -4089,7 +4141,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -4160,6 +4212,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &940823929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940823925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &943050745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,6 +4389,7 @@ GameObject:
   - component: {fileID: 1005941952}
   - component: {fileID: 1005941954}
   - component: {fileID: 1005941953}
+  - component: {fileID: 1005941955}
   m_Layer: 0
   m_Name: Iron_Spike (2)
   m_TagString: Untagged
@@ -4377,7 +4442,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -4448,6 +4513,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1005941955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005941951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1031765999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4585,6 +4662,7 @@ GameObject:
   - component: {fileID: 1116677400}
   - component: {fileID: 1116677402}
   - component: {fileID: 1116677401}
+  - component: {fileID: 1116677403}
   m_Layer: 0
   m_Name: Iron_Spike_Alone (5)
   m_TagString: Untagged
@@ -4637,7 +4715,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -4708,6 +4786,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1116677403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116677399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1150474805
 GameObject:
   m_ObjectHideFlags: 0
@@ -6523,6 +6613,7 @@ GameObject:
   - component: {fileID: 1314795868}
   - component: {fileID: 1314795870}
   - component: {fileID: 1314795869}
+  - component: {fileID: 1314795871}
   m_Layer: 0
   m_Name: Iron_Spike_Alone (6)
   m_TagString: Untagged
@@ -6575,7 +6666,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -6646,6 +6737,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1314795871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314795867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1398788238
 GameObject:
   m_ObjectHideFlags: 0
@@ -6914,6 +7017,7 @@ GameObject:
   - component: {fileID: 1446191130}
   - component: {fileID: 1446191132}
   - component: {fileID: 1446191131}
+  - component: {fileID: 1446191133}
   m_Layer: 0
   m_Name: Iron_Spike_Alone (3)
   m_TagString: Untagged
@@ -6966,7 +7070,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -7037,6 +7141,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1446191133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446191129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1491213989
 GameObject:
   m_ObjectHideFlags: 0
@@ -7961,6 +8077,7 @@ GameObject:
   - component: {fileID: 1606483910}
   - component: {fileID: 1606483912}
   - component: {fileID: 1606483911}
+  - component: {fileID: 1606483913}
   m_Layer: 0
   m_Name: Iron_Spike (8)
   m_TagString: Untagged
@@ -8013,7 +8130,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -8084,6 +8201,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1606483913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606483909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1613487730
 GameObject:
   m_ObjectHideFlags: 0
@@ -8095,6 +8224,7 @@ GameObject:
   - component: {fileID: 1613487731}
   - component: {fileID: 1613487733}
   - component: {fileID: 1613487732}
+  - component: {fileID: 1613487734}
   m_Layer: 0
   m_Name: Iron_Spike (9)
   m_TagString: Untagged
@@ -8147,7 +8277,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -8218,6 +8348,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1613487734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613487730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1613649032
 GameObject:
   m_ObjectHideFlags: 0
@@ -8229,6 +8371,7 @@ GameObject:
   - component: {fileID: 1613649033}
   - component: {fileID: 1613649035}
   - component: {fileID: 1613649034}
+  - component: {fileID: 1613649036}
   m_Layer: 0
   m_Name: Iron_Spike_Alone
   m_TagString: Untagged
@@ -8281,7 +8424,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -8352,6 +8495,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1613649036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613649032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1622680955
 GameObject:
   m_ObjectHideFlags: 0
@@ -8400,6 +8555,7 @@ GameObject:
   - component: {fileID: 1659440703}
   - component: {fileID: 1659440705}
   - component: {fileID: 1659440704}
+  - component: {fileID: 1659440706}
   m_Layer: 0
   m_Name: Iron_Spike
   m_TagString: Untagged
@@ -8452,7 +8608,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -8523,6 +8679,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1659440706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659440702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1676436955
 GameObject:
   m_ObjectHideFlags: 0
@@ -8649,6 +8817,7 @@ GameObject:
   - component: {fileID: 1692196536}
   - component: {fileID: 1692196538}
   - component: {fileID: 1692196537}
+  - component: {fileID: 1692196539}
   m_Layer: 0
   m_Name: Iron_Spike_Alone (9)
   m_TagString: Untagged
@@ -8701,7 +8870,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -8772,6 +8941,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1692196539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692196535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1714582925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8861,6 +9042,7 @@ GameObject:
   - component: {fileID: 1750449380}
   - component: {fileID: 1750449382}
   - component: {fileID: 1750449381}
+  - component: {fileID: 1750449383}
   m_Layer: 0
   m_Name: Iron_Spike_Alone (2)
   m_TagString: Untagged
@@ -8913,7 +9095,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -8984,6 +9166,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1750449383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750449379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1766675178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9455,6 +9649,7 @@ GameObject:
   - component: {fileID: 2112146575}
   - component: {fileID: 2112146577}
   - component: {fileID: 2112146576}
+  - component: {fileID: 2112146578}
   m_Layer: 0
   m_Name: Iron_Spike (4)
   m_TagString: Untagged
@@ -9507,7 +9702,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -9578,6 +9773,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2112146578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112146574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0923d0962b4c71045a93a6c32d9bbaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2134965303
 GameObject:
   m_ObjectHideFlags: 0

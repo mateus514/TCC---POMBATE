@@ -32,6 +32,12 @@ public class Player : MonoBehaviour
         weaponParent = GetComponentInChildren<WeaponParent>();
         animator = GetComponentInChildren<Animator>();
     }
+    
+    void Start()
+    {
+        // força o Animator a começar no Idle
+        animator.SetInteger("state", (int)state);
+    }
 
     void Update()
     {
@@ -101,8 +107,6 @@ public class Player : MonoBehaviour
 
     private void SetState(State novoEstado)
     {
-        if (state == novoEstado) return;
-
         state = novoEstado;
         animator.SetInteger("state", (int)state);
     }
