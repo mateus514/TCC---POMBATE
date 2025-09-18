@@ -12,12 +12,14 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
 
-    public CanvasGroup dialogueCanvasGroup; // novo!
+    public CanvasGroup dialogueCanvasGroup; 
 
     private Queue<DialogueLine> lines;
     public bool isDialogueActive = false;
     public float typingSpeed = 0.02f;
     public float fadeSpeed = 5f;
+
+    private Coroutine typingCoroutine;
 
     private void Awake()
     {
@@ -28,12 +30,28 @@ public class DialogueManager : MonoBehaviour
         dialogueCanvasGroup.alpha = 0f;
     }
 
+    void Update()
+    {
+        if (isDialogueActive && Input.GetKeyDown(KeyCode.Return))
+        {
+            // Se ainda está digitando, termina instantâneo
+            if (typingCoroutine != null)
+            {
+                StopCoroutine(typingCoroutine);
+                dialogueArea.text = lines.Peek().line; // mostra a linha completa
+                typingCoroutine = null;
+                return;
+            }
+
+            DisplayNextDialogueLine();
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
         isDialogueActive = true;
 
-        dialogueArea.text = ""; // <- limpa o texto antigo IMEDIATAMENTE
-
+        dialogueArea.text = ""; 
         lines.Clear();
 
         foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
@@ -44,7 +62,6 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(FadeIn());
     }
-
 
     public void DisplayNextDialogueLine()
     {
@@ -58,8 +75,10 @@ public class DialogueManager : MonoBehaviour
         characterIcon.sprite = currentLine.character.icon;
         characterName.text = currentLine.character.name;
 
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(currentLine));
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
+
+        typingCoroutine = StartCoroutine(TypeSentence(currentLine));
     }
 
     IEnumerator TypeSentence(DialogueLine dialogueLine)
@@ -70,6 +89,8 @@ public class DialogueManager : MonoBehaviour
             dialogueArea.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        typingCoroutine = null; // terminou de digitar
     }
 
     IEnumerator FadeIn()
@@ -94,5 +115,8 @@ public class DialogueManager : MonoBehaviour
 
         dialogueCanvasGroup.alpha = 0f;
         isDialogueActive = false;
+
+        // 🔹 destrói o objeto quando o diálogo terminar
+        Destroy(gameObject);
     }
 }
