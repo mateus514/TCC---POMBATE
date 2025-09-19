@@ -6670,7 +6670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8540947362803263177, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13576,6 +13576,8 @@ MonoBehaviour:
   firePoint: {fileID: 1068643221}
   bulletForce: 20
   maxBullets: 6
+  playerRb: {fileID: 228903571}
+  recoilForce: 50
 --- !u!1 &1125257180 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3829826318686692715, guid: d46d9b3efaa6abf48b3e390866270851, type: 3}
@@ -24068,9 +24070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Algumas balas fecham caminhos
-
-'
+  m_text: "Paci\xEAncia \xE9 uma virtude, observar \xE9 estrat\xE9gia"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
   m_sharedMaterial: {fileID: 3244816014042722807, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}

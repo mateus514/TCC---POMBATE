@@ -34,5 +34,7 @@ public class WeaponParent : MonoBehaviour
         {
             weaponRenderer.sortingOrder = characterRenderer.sortingOrder + 1;
         }
+        
+       
     }
 }

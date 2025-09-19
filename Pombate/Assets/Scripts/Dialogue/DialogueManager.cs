@@ -32,7 +32,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (isDialogueActive && Input.GetKeyDown(KeyCode.Return))
+        if (isDialogueActive && Input.GetKeyDown(KeyCode.Space))
         {
             // Se ainda está digitando, termina instantâneo
             if (typingCoroutine != null)
