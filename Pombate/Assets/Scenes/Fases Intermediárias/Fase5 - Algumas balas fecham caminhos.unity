@@ -2390,7 +2390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948c2273890500e4d9d2f0e451a64711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaCena: Fase6 -
+  nomeDaCena: "Fase6 - Seu pr\xF3ximo passo pode ser seu \xFAltimo"
 --- !u!61 &393481411
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5870,7 +5870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07c5eff1221eaf4dac4b316255a6b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  telaPreta: {fileID: 0}
+  telaPreta: {fileID: 1296253745}
   duracaoFade: 1
 --- !u!114 &943050749
 MonoBehaviour:
@@ -6693,6 +6693,8 @@ MonoBehaviour:
   firePoint: {fileID: 1068643221}
   bulletForce: 20
   maxBullets: 6
+  playerRb: {fileID: 0}
+  recoilForce: 5
 --- !u!1 &1171326181
 GameObject:
   m_ObjectHideFlags: 0

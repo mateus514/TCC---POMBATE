@@ -13936,7 +13936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07c5eff1221eaf4dac4b316255a6b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  telaPreta: {fileID: 0}
+  telaPreta: {fileID: 1296253745}
   duracaoFade: 1
 --- !u!114 &943050749
 MonoBehaviour:
