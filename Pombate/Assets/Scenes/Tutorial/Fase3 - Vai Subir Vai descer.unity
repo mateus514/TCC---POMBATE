@@ -4610,6 +4610,8 @@ MonoBehaviour:
   firePoint: {fileID: 1068643221}
   bulletForce: 20
   maxBullets: 6
+  playerRb: {fileID: 228903571}
+  recoilForce: 7
 --- !u!1 &1116677399
 GameObject:
   m_ObjectHideFlags: 0

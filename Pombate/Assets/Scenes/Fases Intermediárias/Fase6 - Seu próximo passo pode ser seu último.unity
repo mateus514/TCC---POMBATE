@@ -7532,8 +7532,8 @@ MonoBehaviour:
   firePoint: {fileID: 1068643221}
   bulletForce: 20
   maxBullets: 6
-  playerRb: {fileID: 0}
-  recoilForce: 5
+  playerRb: {fileID: 228903571}
+  recoilForce: 7
 --- !u!1001 &1083436630
 PrefabInstance:
   m_ObjectHideFlags: 0

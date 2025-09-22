@@ -6713,8 +6713,8 @@ MonoBehaviour:
   firePoint: {fileID: 1068643221}
   bulletForce: 20
   maxBullets: 6
-  playerRb: {fileID: 0}
-  recoilForce: 5
+  playerRb: {fileID: 228903571}
+  recoilForce: 7
 --- !u!1 &1171326181
 GameObject:
   m_ObjectHideFlags: 0
@@ -9977,7 +9977,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -10060,10 +10060,10 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -630910418, guid: 076da2bd0b3e32c43aeb788effc6a748, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -630910418, guid: 076da2bd0b3e32c43aeb788effc6a748, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1735270224, guid: 076da2bd0b3e32c43aeb788effc6a748, type: 3}
   - m_RefCount: 1

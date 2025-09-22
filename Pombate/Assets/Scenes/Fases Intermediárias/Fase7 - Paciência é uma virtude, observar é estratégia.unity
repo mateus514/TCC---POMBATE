@@ -15285,7 +15285,7 @@ MonoBehaviour:
   bulletForce: 20
   maxBullets: 6
   playerRb: {fileID: 228903571}
-  recoilForce: 50
+  recoilForce: 7
 --- !u!1001 &1102162756
 PrefabInstance:
   m_ObjectHideFlags: 0
