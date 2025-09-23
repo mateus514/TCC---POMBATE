@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class CursorManager : MonoBehaviour
+public class AimManager : MonoBehaviour
 {
-    public Texture2D crosshairTexture; // arrasta sua mira aqui no inspector
-    public Vector2 hotspot = Vector2.zero; // ponto de clique (geralmente centro da imagem)
-    public CursorMode cursorMode = CursorMode.Auto;
+    private Camera mainCam;
 
     void Start()
     {
-        // Centraliza o hotspot no meio da imagem da mira
-        Vector2 center = new Vector2(crosshairTexture.width / 2, crosshairTexture.height / 2);
+        mainCam = Camera.main;
+    }
 
-        Cursor.SetCursor(crosshairTexture, center, cursorMode);
+    void Update()
+    {
+        if (mainCam == null) return;
+
+        // Pega posição do mouse na tela e converte para mundo
+        Vector3 mouseWorldPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0f;
+
+        // Faz a mira seguir o mouse
+        transform.position = mouseWorldPos;
     }
 }
