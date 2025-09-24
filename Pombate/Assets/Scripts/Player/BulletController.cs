@@ -34,6 +34,9 @@ public class BulletController : MonoBehaviour
 
     void Shoot()
     {
+        if (Time.timeScale == 0f)
+    return;
+
         // Calcula a direção baseada no firePoint
         Vector2 shootDirection = firePoint.right.normalized;
 

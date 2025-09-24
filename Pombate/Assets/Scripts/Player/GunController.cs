@@ -31,6 +31,11 @@ public class WeaponParent : MonoBehaviour
 
     void Update()
     {
+        // Se o jogo estiver pausado, não faz nada
+        if (Time.timeScale == 0f)
+            return;
+
+        // Se estiver em diálogo, também não faz nada
         if (DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive)
             return;
 

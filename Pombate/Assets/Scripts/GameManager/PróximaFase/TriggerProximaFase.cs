@@ -6,17 +6,27 @@ public class TriggerProximaFase : MonoBehaviour
     public string nomeDaCena;
 
     private ProximaFase proximaFase;
+    private TimerBar timerBar;
 
     private void Start()
     {
         proximaFase = FindObjectOfType<ProximaFase>();
+        timerBar = FindObjectOfType<TimerBar>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && proximaFase != null)
+        if (collision.CompareTag("Player"))
         {
-            proximaFase.CarregarCena(nomeDaCena);
+            if (timerBar != null)
+            {
+                timerBar.StopTimer();
+            }
+
+            if (proximaFase != null)
+            {
+                proximaFase.CarregarCena(nomeDaCena);
+            }
         }
     }
 }
