@@ -1,36 +1,76 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class ResetFase : MonoBehaviour
 {
+    [Header("Referências do Jogo")]
+    public Player player;
+    public BulletController bulletCtrl;
+    public Tilemap tilemap;
+
+    [Header("Scripts de Estado")]
+    public GameOverManager gameOverScript;
+    public PauseManager pauseManagerScript;
+    public DialogueManager dialogueScript;
+
+    [Header("Configurações")]
+    public KeyCode resetKey = KeyCode.R;
+
+    private Vector3 playerStartPos;
+    private Quaternion playerStartRot;
+    private Dictionary<Vector3Int, TileBase> initialTiles;
+
+    void Start()
+    {
+        // Salva posição inicial do player
+        playerStartPos = player.transform.position;
+        playerStartRot = player.transform.rotation;
+
+        // Salva os tiles originais do tilemap
+        initialTiles = new Dictionary<Vector3Int, TileBase>();
+        BoundsInt bounds = tilemap.cellBounds;
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        {
+            TileBase tile = tilemap.GetTile(pos);
+            if (tile != null)
+                initialTiles[pos] = tile;
+        }
+    }
+
     void Update()
     {
-        // Reinicia cena ao apertar R
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(resetKey) && PodeResetar())
         {
-            ReiniciarCena();
+            ResetarCena();
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private bool PodeResetar()
     {
-        if (collision.gameObject.CompareTag("Restart"))
-        {
-            ReiniciarCena();
-        }
+        bool gameOverAtivo = gameOverScript != null && gameOverScript.isGameOver;
+        bool pauseAtivo = pauseManagerScript != null && pauseManagerScript.IsPaused();
+        bool dialogueAtivo = dialogueScript != null && dialogueScript.isDialogueActive;
+
+        return !gameOverAtivo && !pauseAtivo && !dialogueAtivo;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void ResetarCena()
     {
-        if (collision.CompareTag("Restart"))
-        {
-            ReiniciarCena();
-        }
-    }
+        // Reset player
+        player.transform.position = playerStartPos;
+        player.transform.rotation = playerStartRot;
+        player.ResetarEstado();
+        
 
-    private void ReiniciarCena()
-    {
-        string cenaAtual = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(cenaAtual);
+        // Reset balas
+        bulletCtrl.ResetBalas();
+
+        // Reset tilemap
+        tilemap.ClearAllTiles();
+        foreach (var kvp in initialTiles)
+        {
+            tilemap.SetTile(kvp.Key, kvp.Value);
+        }
     }
 }

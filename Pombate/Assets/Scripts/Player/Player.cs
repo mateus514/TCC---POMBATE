@@ -104,6 +104,16 @@ public class Player : MonoBehaviour
             SetState(State.idle);
         }
     }
+    public void ResetarEstado()
+    {
+        // Para garantir que o player não continue com velocidade/resíduo
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
+    }
 
     private void SetState(State novoEstado)
     {

@@ -6,12 +6,12 @@ public class TriggerProximaFase : MonoBehaviour
     public string nomeDaCena;
 
     private ProximaFase proximaFase;
-    private TimerBar timerBar;
+    private TimeBar timerBar;
 
     private void Start()
     {
         proximaFase = FindObjectOfType<ProximaFase>();
-        timerBar = FindObjectOfType<TimerBar>();
+        timerBar = FindObjectOfType<TimeBar>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

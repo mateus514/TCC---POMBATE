@@ -31,6 +31,13 @@ public class BulletController : MonoBehaviour
             Shoot();
         }
     }
+    
+    public void ResetBalas()
+    {
+        // Volta a quantidade de balas para o máximo
+        currentBullets = maxBullets;
+    }
+
 
     void Shoot()
     {

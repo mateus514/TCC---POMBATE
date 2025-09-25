@@ -1,13 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
-public class TimerBar : MonoBehaviour
+public class TimeBar : MonoBehaviour
 {
     public Image timerFillImage;
     public float totalTime = 5f;
 
     private float timeLeft;
     private bool isRunning = true;
+
+    // Evento para notificar quando o tempo acabar
+    public event Action OnTimerEnd;
 
     void Start()
     {
@@ -16,7 +20,6 @@ public class TimerBar : MonoBehaviour
 
     void Update()
     {
-        // Não roda se o timer estiver parado ou o diálogo estiver ativo
         if (!isRunning || (DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive))
             return;
 
@@ -29,16 +32,20 @@ public class TimerBar : MonoBehaviour
         else
         {
             timerFillImage.fillAmount = 0f;
-            // ação quando o tempo acaba
+            if (isRunning)
+            {
+                isRunning = false;
+                OnTimerEnd?.Invoke(); // dispara evento
+            }
         }
     }
 
-    public void ResetTimer()
+    /*public void ResetTimer()
     {
         timeLeft = totalTime;
         timerFillImage.fillAmount = 1f;
         isRunning = true;
-    }
+    }*/
 
     public void StopTimer()
     {

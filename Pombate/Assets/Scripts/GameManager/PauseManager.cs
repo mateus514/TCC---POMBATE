@@ -18,9 +18,7 @@ public class PauseManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
             TogglePause();
-        }
     }
 
     void TogglePause()
@@ -41,5 +39,10 @@ public class PauseManager : MonoBehaviour
             pauseBackground.SetActive(false);
             pauseText.SetActive(false);
         }
+    }
+
+    public bool IsPaused()
+    {
+        return isPaused;
     }
 }
