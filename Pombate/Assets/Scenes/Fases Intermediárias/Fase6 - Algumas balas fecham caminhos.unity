@@ -3511,6 +3511,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -12, y: -3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 4
+      m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -11, y: -3, z: 0}
     second:
       serializedVersion: 2
@@ -3526,16 +3536,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 2
       m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -12, y: -2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3859,9 +3859,9 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 55799d33d0a7690409cb167589528c1b, type: 2}
   - m_RefCount: 14
     m_Data: {fileID: 11400000, guid: e21aa30f575f69c42a14185300a32194, type: 2}
-  - m_RefCount: 25
+  - m_RefCount: 24
     m_Data: {fileID: 11400000, guid: 8a7aef306e07ba046ade51761f6e9043, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 830c0680535d89a498e526121fd42a7d, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 89e88e9da66816741ad7ee43cf1cf603, type: 2}
@@ -3872,9 +3872,9 @@ Tilemap:
     m_Data: {fileID: -2144180687, guid: 076da2bd0b3e32c43aeb788effc6a748, type: 3}
   - m_RefCount: 14
     m_Data: {fileID: 118456875, guid: 076da2bd0b3e32c43aeb788effc6a748, type: 3}
-  - m_RefCount: 25
+  - m_RefCount: 24
     m_Data: {fileID: 788926710, guid: 076da2bd0b3e32c43aeb788effc6a748, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 4
     m_Data: {fileID: -491437440, guid: 076da2bd0b3e32c43aeb788effc6a748, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 317967142, guid: 076da2bd0b3e32c43aeb788effc6a748, type: 3}
@@ -7270,7 +7270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pule e atire! Sua arma \xE9 sua amiga"
+  m_text: Algumas balas fecham caminhos.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
   m_sharedMaterial: {fileID: 3244816014042722807, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
@@ -11726,7 +11726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerFillImage: {fileID: 27936275}
-  totalTime: 20
+  totalTime: 25
 --- !u!114 &1657622904
 MonoBehaviour:
   m_ObjectHideFlags: 0

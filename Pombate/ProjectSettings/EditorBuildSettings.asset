@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: "Assets/Scenes/Tutorial/Fase4 - Salto de f\xE9 1.unity"
     guid: a0546c347d2c110488b157f98c7820ab
   - enabled: 1
+    path: "Assets/Scenes/Fases Intermedi\xE1rias/Fase5 -  Algumas balas abrem caminhos.unity"
+    guid: e2032d95ad7e934439717b54ce2f771c
+  - enabled: 1
     path: "Assets/Scenes/Fases Intermedi\xE1rias/Fase6 - Algumas balas fecham caminhos.unity"
     guid: 9857c418fa592cb4cb5651b65fc96443
   - enabled: 1
