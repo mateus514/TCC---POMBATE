@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+
+public bool jogoPausado = false;
+public bool gameOver = false;
+
     private float horizontalInput;
     private Rigidbody2D rb;
 
@@ -26,16 +30,20 @@ public class Player : MonoBehaviour
     private enum State { idle, running, jump }
     private State state = State.idle;
 
+    private bool olhandoParaDireita = true;
+
+    [Header("Sprite Renderer (do objeto visual)")]
+    [SerializeField] private SpriteRenderer spriteRenderer; // <- arraste o SpriteRenderer aqui no Inspector
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         weaponParent = GetComponentInChildren<WeaponParent>();
         animator = GetComponentInChildren<Animator>();
     }
-    
+
     void Start()
     {
-        // força o Animator a começar no Idle
         animator.SetInteger("state", (int)state);
     }
 
@@ -64,6 +72,16 @@ public class Player : MonoBehaviour
         estaNoChao = Physics2D.OverlapCircle(peDoPersonagem.position, 0.2f, chaoLayer);
 
         StateChange();
+
+        // Flip apenas do sprite visual
+        if (horizontalInput > 0 && !olhandoParaDireita)
+        {
+            Virar();
+        }
+        else if (horizontalInput < 0 && olhandoParaDireita)
+        {
+            Virar();
+        }
     }
 
     void FixedUpdate()
@@ -72,11 +90,11 @@ public class Player : MonoBehaviour
 
         if (emDialogo)
         {
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            rb.velocity = new Vector2(0, rb.velocity.y);
             return;
         }
 
-        rb.linearVelocity = new Vector2(horizontalInput * velocidade, rb.linearVelocity.y);
+        rb.velocity = new Vector2(horizontalInput * velocidade, rb.velocity.y);
     }
 
     private Vector2 GetPointerInput()
@@ -95,7 +113,7 @@ public class Player : MonoBehaviour
         {
             SetState(State.jump);
         }
-        else if (Mathf.Abs(rb.linearVelocity.x) > 0.1f)
+        else if (Mathf.Abs(rb.velocity.x) > 0.1f)
         {
             SetState(State.running);
         }
@@ -104,13 +122,12 @@ public class Player : MonoBehaviour
             SetState(State.idle);
         }
     }
+
     public void ResetarEstado()
     {
-        // Para garantir que o player não continue com velocidade/resíduo
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.linearVelocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
         }
     }
@@ -120,10 +137,18 @@ public class Player : MonoBehaviour
         state = novoEstado;
         animator.SetInteger("state", (int)state);
     }
+
     public void Morrer()
     {
         Scene sceneAtual = SceneManager.GetActiveScene();
         SceneManager.LoadScene(sceneAtual.name);
     }
-}
 
+    private void Virar()
+    {
+        olhandoParaDireita = !olhandoParaDireita;
+
+        // Flipa apenas o sprite visual (não o transform nem filhos)
+        spriteRenderer.flipX = !olhandoParaDireita;
+    }
+}
