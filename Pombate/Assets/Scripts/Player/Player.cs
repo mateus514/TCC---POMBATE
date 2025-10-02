@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    private bool bloqueado = false;
     public bool jogoPausado = false;
     public bool gameOver = false;
 
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (bloqueado) return;
         bool emDialogo = DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive;
 
         if (emDialogo)
@@ -70,6 +72,8 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(Vector2.up * forcaPulo);
         }
+        
+        
 
         estaNoChao = Physics2D.OverlapCircle(peDoPersonagem.position, 0.2f, chaoLayer);
 
@@ -88,6 +92,12 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (bloqueado)
+        {
+            rb.linearVelocity = Vector2.zero; // força total zero enquanto bloqueado
+            return;
+        }
+        
         bool emDialogo = DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive;
 
         if (emDialogo)
@@ -157,8 +167,15 @@ public class Player : MonoBehaviour
     // --- NOVO MÉTODO ---
     public void Respawn()
     {
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        bloqueado = true;
         // Ativa o trigger de respawn no Animator
         animator.SetTrigger("Respawn");
+    }
+    public void DesbloquearMovimento()
+    {
+        bloqueado = false; // libera movimento
     }
 }
 
