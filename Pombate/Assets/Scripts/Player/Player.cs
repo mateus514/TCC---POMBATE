@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
     }
 
     // --- NOVO MÉTODO ---
-    private void Respawn()
+    public void Respawn()
     {
         // Ativa o trigger de respawn no Animator
         animator.SetTrigger("Respawn");
