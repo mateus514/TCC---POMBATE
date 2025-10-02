@@ -6,9 +6,8 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-
-public bool jogoPausado = false;
-public bool gameOver = false;
+    public bool jogoPausado = false;
+    public bool gameOver = false;
 
     private float horizontalInput;
     private Rigidbody2D rb;
@@ -45,6 +44,9 @@ public bool gameOver = false;
     void Start()
     {
         animator.SetInteger("state", (int)state);
+
+        // Sempre que o player "nascer" ou "ressurgir", toca a animação
+        Respawn();
     }
 
     void Update()
@@ -90,11 +92,11 @@ public bool gameOver = false;
 
         if (emDialogo)
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
             return;
         }
 
-        rb.velocity = new Vector2(horizontalInput * velocidade, rb.velocity.y);
+        rb.linearVelocity = new Vector2(horizontalInput * velocidade, rb.linearVelocity.y);
     }
 
     private Vector2 GetPointerInput()
@@ -113,7 +115,7 @@ public bool gameOver = false;
         {
             SetState(State.jump);
         }
-        else if (Mathf.Abs(rb.velocity.x) > 0.1f)
+        else if (Mathf.Abs(rb.linearVelocity.x) > 0.1f)
         {
             SetState(State.running);
         }
@@ -127,7 +129,7 @@ public bool gameOver = false;
     {
         if (rb != null)
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
         }
     }
@@ -151,4 +153,12 @@ public bool gameOver = false;
         // Flipa apenas o sprite visual (não o transform nem filhos)
         spriteRenderer.flipX = !olhandoParaDireita;
     }
+
+    // --- NOVO MÉTODO ---
+    private void Respawn()
+    {
+        // Ativa o trigger de respawn no Animator
+        animator.SetTrigger("Respawn");
+    }
 }
+
