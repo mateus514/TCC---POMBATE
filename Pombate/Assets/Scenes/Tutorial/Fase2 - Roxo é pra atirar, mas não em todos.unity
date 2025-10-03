@@ -1098,6 +1098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7a691765c1cbd499dc143325d72048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jogoPausado: 0
+  gameOver: 0
   velocidade: 5
   forcaPulo: 200
   peDoPersonagem: {fileID: 1401830462}
@@ -1105,6 +1107,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   pointerPosition: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!61 &228903573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4379,6 +4382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3438f1f34ba5e442b59b8411c1f92e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tamborImage: {fileID: 0}
+  estadosTambor: []
   bulletPrefab: {fileID: 789887800996942141, guid: 12b35df7255c2f34f8d0b48b0969d78a, type: 3}
   firePoint: {fileID: 1068643221}
   bulletForce: 20
