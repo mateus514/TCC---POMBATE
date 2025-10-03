@@ -1613,6 +1613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7a691765c1cbd499dc143325d72048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jogoPausado: 0
+  gameOver: 0
   velocidade: 5
   forcaPulo: 200
   peDoPersonagem: {fileID: 1401830462}
@@ -1620,6 +1622,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   pointerPosition: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!61 &228903573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5172,6 +5175,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1151288930614899430, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
       insertIndex: -1
       addedObject: {fileID: 608957796}
+    - targetCorrespondingSourceObject: {fileID: 1151288930614899430, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1526050402}
     - targetCorrespondingSourceObject: {fileID: 1402409848827460428, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
       insertIndex: 0
       addedObject: {fileID: 863829602}
@@ -5947,6 +5953,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3438f1f34ba5e442b59b8411c1f92e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tamborImage: {fileID: 1526050403}
+  estadosTambor:
+  - {fileID: -1242862714137285975, guid: 3259b2a10daa365449c5d770a15e6002, type: 3}
+  - {fileID: 8647522673156106468, guid: fc117d08eb3b55b48b5c58ce8f4e8732, type: 3}
+  - {fileID: 6123720749905602997, guid: 416df2df4fd60324e8afbbd1be5b4225, type: 3}
+  - {fileID: -5841508158413752047, guid: eb017ba864344f641b7faf1a7001ed64, type: 3}
+  - {fileID: 1112510989488210165, guid: 7acaa6778bb480742a9e00b15ba9e9be, type: 3}
+  - {fileID: -6666345445705486811, guid: f53f023a2ee5e7948bbfafd69b91b429, type: 3}
+  - {fileID: -290327765136032519, guid: 3c59ca04720dcb64ea400c82ce259b61, type: 3}
   bulletPrefab: {fileID: 789887800996942141, guid: 12b35df7255c2f34f8d0b48b0969d78a, type: 3}
   firePoint: {fileID: 1068643221}
   bulletForce: 20
@@ -9694,6 +9709,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 70c99753aca713f4f86e71ea61f53d98, type: 3}
   m_PrefabInstance: {fileID: 1497331392}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1526050401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526050402}
+  - component: {fileID: 1526050404}
+  - component: {fileID: 1526050403}
+  m_Layer: 5
+  m_Name: TamborHUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1526050402
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526050401}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.000013, y: 1.000013, z: 1.000013}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 866123177}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -878.208, y: -455.95004}
+  m_SizeDelta: {x: 163.584, y: 167.52}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1526050403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526050401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1242862714137285975, guid: 3259b2a10daa365449c5d770a15e6002, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1526050404
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526050401}
+  m_CullTransparentMesh: 1
 --- !u!1 &1611186361
 GameObject:
   m_ObjectHideFlags: 0
