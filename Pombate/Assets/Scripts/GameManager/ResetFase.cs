@@ -61,7 +61,9 @@ public class ResetFase : MonoBehaviour
         player.transform.position = playerStartPos;
         player.transform.rotation = playerStartRot;
         player.ResetarEstado();
-        
+
+        // --- ADICIONADO: tocar animação de respawn ---
+        player.Respawn();
 
         // Reset balas
         bulletCtrl.ResetBalas();

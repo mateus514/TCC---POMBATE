@@ -1,7 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BulletController : MonoBehaviour
 {
+    [Header("HUD do Tambor")]
+    public Image tamborImage;        // Arraste aqui o Image do Canvas
+    public Sprite[] estadosTambor;  // Sprites do tambor (cheio -> vazio)
+    
+    
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float bulletForce = 20f;
@@ -36,6 +42,7 @@ public class BulletController : MonoBehaviour
     {
         // Volta a quantidade de balas para o máximo
         currentBullets = maxBullets;
+        AtualizarHUD();
     }
 
 
@@ -59,6 +66,16 @@ public class BulletController : MonoBehaviour
         }
 
         currentBullets--;
+        AtualizarHUD();
         Destroy(bullet, 2f);
+    }
+    void AtualizarHUD()
+    {
+        if (tamborImage == null || estadosTambor.Length == 0)
+            return;
+
+        // Inverte o índice para que currentBullets = max → sprite cheio
+        int index = estadosTambor.Length - 1 - Mathf.Clamp(currentBullets, 0, estadosTambor.Length - 1);
+        tamborImage.sprite = estadosTambor[index];
     }
 }

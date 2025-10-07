@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 416df2df4fd60324e8afbbd1be5b4225
+guid: 3c59ca04720dcb64ea400c82ce259b61
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6123720749905602997
-    second: "C\xF3pia de Pistol_Roulett_final___3_0"
+      213: -290327765136032519
+    second: "C\xF3pia de Pistol_Roulett_final___7_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "C\xF3pia de Pistol_Roulett_final___3_0"
+      name: "C\xF3pia de Pistol_Roulett_final___7_0"
       rect:
         serializedVersion: 2
-        x: 9
-        y: 10
-        width: 42
-        height: 43
+        x: 10
+        y: 11
+        width: 40
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5b9efc1c393dbf450800000000000000
-      internalID: 6123720749905602997
+      spriteID: 9fc32a29f6c88fbf0800000000000000
+      internalID: -290327765136032519
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 19a023e814ccfd643a7d643e4c1e83e3
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "C\xF3pia de Pistol_Roulett_final___3_0": 6123720749905602997
+      "C\xF3pia de Pistol_Roulett_final___7_0": -290327765136032519
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
