@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public bool jogoPausado = false;
     public bool gameOver = false;
 
+    public ParticleSystem dust;
+        
     private float horizontalInput;
     private Rigidbody2D rb;
 
@@ -73,8 +75,6 @@ public class Player : MonoBehaviour
             rb.AddForce(Vector2.up * forcaPulo);
         }
         
-        
-
         estaNoChao = Physics2D.OverlapCircle(peDoPersonagem.position, 0.2f, chaoLayer);
 
         StateChange();
@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
     {
         if (bloqueado)
         {
-            rb.linearVelocity = Vector2.zero; // força total zero enquanto bloqueado
+            rb.velocity = Vector2.zero; // força total zero enquanto bloqueado
             return;
         }
         
@@ -102,11 +102,11 @@ public class Player : MonoBehaviour
 
         if (emDialogo)
         {
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            rb.velocity = new Vector2(0, rb.velocity.y);
             return;
         }
 
-        rb.linearVelocity = new Vector2(horizontalInput * velocidade, rb.linearVelocity.y);
+        rb.velocity = new Vector2(horizontalInput * velocidade, rb.velocity.y);
     }
 
     private Vector2 GetPointerInput()
@@ -124,14 +124,18 @@ public class Player : MonoBehaviour
         if (!estaNoChao)
         {
             SetState(State.jump);
+            dust.Stop();
         }
-        else if (Mathf.Abs(rb.linearVelocity.x) > 0.1f)
+        else if (Mathf.Abs(rb.velocity.x) > 0.1f)
         {
             SetState(State.running);
+            if (!dust.isPlaying)
+                dust.Play();
         }
         else
         {
             SetState(State.idle);
+            dust.Stop();
         }
     }
 
@@ -139,7 +143,7 @@ public class Player : MonoBehaviour
     {
         if (rb != null)
         {
-            rb.linearVelocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
         }
     }
@@ -167,7 +171,7 @@ public class Player : MonoBehaviour
     // --- NOVO MÉTODO ---
     public void Respawn()
     {
-        rb.linearVelocity = Vector2.zero;
+        rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         bloqueado = true;
         // Ativa o trigger de respawn no Animator
@@ -178,4 +182,3 @@ public class Player : MonoBehaviour
         bloqueado = false; // libera movimento
     }
 }
-

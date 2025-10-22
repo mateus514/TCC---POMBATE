@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
 
-    public CanvasGroup dialogueCanvasGroup; 
+    public CanvasGroup dialogueCanvasGroup;
 
     private Queue<DialogueLine> lines;
     public bool isDialogueActive = false;
@@ -24,7 +24,15 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject);  
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         lines = new Queue<DialogueLine>();
         dialogueCanvasGroup.alpha = 0f;
@@ -51,7 +59,7 @@ public class DialogueManager : MonoBehaviour
     {
         isDialogueActive = true;
 
-        dialogueArea.text = ""; 
+        dialogueArea.text = "";
         lines.Clear();
 
         foreach (DialogueLine dialogueLine in dialogue.dialogueLines)
