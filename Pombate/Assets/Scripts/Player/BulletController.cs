@@ -5,13 +5,13 @@ public class BulletController : MonoBehaviour
 {
     [Header("HUD do Tambor")]
     public Image tamborImage;        // Arraste aqui o Image do Canvas
-    public Sprite[] estadosTambor;  // Sprites do tambor (cheio -> vazio)
+    public Sprite[] estadosTambor;   // Sprites do tambor (cheio -> vazio)
     
-    
+    [Header("Disparo")]
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float bulletForce = 20f;
-    
+
     [Header("Balas")]
     [SerializeField] private int maxBullets = 6;
     private int currentBullets;
@@ -19,6 +19,9 @@ public class BulletController : MonoBehaviour
     [Header("Recuo do Player")]
     public Rigidbody2D playerRb;     // arraste o Rigidbody2D do player no Inspector
     public float recoilForce = 5f;   // intensidade do recuo
+
+    [Header("Som do Jogador")]
+    public SomDoJogador somDoJogador; // 🔊 arraste aqui o script SomDoJogador do Player
 
     void Start()
     {
@@ -37,7 +40,7 @@ public class BulletController : MonoBehaviour
             Shoot();
         }
     }
-    
+
     public void ResetBalas()
     {
         // Volta a quantidade de balas para o máximo
@@ -45,11 +48,10 @@ public class BulletController : MonoBehaviour
         AtualizarHUD();
     }
 
-
     void Shoot()
     {
         if (Time.timeScale == 0f)
-    return;
+            return;
 
         // Calcula a direção baseada no firePoint
         Vector2 shootDirection = firePoint.right.normalized;
@@ -58,6 +60,10 @@ public class BulletController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(shootDirection * bulletForce, ForceMode2D.Impulse);
+
+        // 🔊 Toca o som de tiro
+        if (somDoJogador != null)
+            somDoJogador.TocarSomTiro();
 
         // Aplica recuo no player (oposto ao tiro)
         if (playerRb != null)
@@ -69,6 +75,7 @@ public class BulletController : MonoBehaviour
         AtualizarHUD();
         Destroy(bullet, 2f);
     }
+
     void AtualizarHUD()
     {
         if (tamborImage == null || estadosTambor.Length == 0)

@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
-    public Player player; // Use o script correto do seu player
+    public Player player; // Arraste o Player no Inspector
     private Vector3 playerStartPos;
     private Quaternion playerStartRot;
 
@@ -18,7 +17,11 @@ public class Spikes : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // Reseta posição e rotação
+            // Toca o som de morte/dano
+            if (player.somDoJogador != null)
+                player.somDoJogador.TocarSomMorte();
+
+            // Reseta posição e rotação manualmente
             player.transform.position = playerStartPos;
             player.transform.rotation = playerStartRot;
 
