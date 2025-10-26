@@ -2,25 +2,45 @@ using UnityEngine;
 
 public class SomDoJogador : MonoBehaviour
 {
-    public UnityEngine.AudioSource audioSource; // ⬅️ tipo completo
+    [Header("Audio Sources")]
+    public UnityEngine.AudioSource audioSourcePassos; // arraste aqui o AudioSource de passos
+    public UnityEngine.AudioSource audioSourceEfeitos; // para tiros, pulo, morte etc.
+
+    [Header("Sons")]
     public AudioClip somPulo;
     public AudioClip somTiro;
     public AudioClip somMorte;
 
+    // ----------------------------
+    // Métodos para cada som
+    // ----------------------------
     public void TocarSomPulo()
     {
-        if (audioSource != null && somPulo != null)
-            audioSource.PlayOneShot(somPulo);
+        audioSourceEfeitos.PlayOneShot(somPulo);
     }
 
     public void TocarSomTiro()
     {
-        if (audioSource != null && somTiro != null)
-            audioSource.PlayOneShot(somTiro);
+        audioSourceEfeitos.PlayOneShot(somTiro);
     }
+
     public void TocarSomMorte()
     {
-        if (audioSource != null && somMorte != null)
-            audioSource.PlayOneShot(somMorte);
+        audioSourceEfeitos.PlayOneShot(somMorte);
+    }
+
+    // ----------------------------
+    // Passos
+    // ----------------------------
+    public void ComecarPassos()
+    {
+        if (!audioSourcePassos.isPlaying)
+            audioSourcePassos.Play();
+    }
+
+    public void PararPassos()
+    {
+        if (audioSourcePassos.isPlaying)
+            audioSourcePassos.Stop();
     }
 }

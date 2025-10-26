@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Header("Sons do Jogador")]
-    public SomDoJogador somDoJogador; // arraste aqui o objeto SonsDoJogador
+    public SomDoJogador somDoJogador; // arraste aqui o objeto SomDoJogador
 
     private Vector3 posicaoInicial;
 
@@ -75,6 +75,9 @@ public class Player : MonoBehaviour
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             weaponParent.PointerPosition = worldPos;
         }
+
+        // 🔹 Controle do som de passos
+        ControlarSomPassos();
 
         StateChange();
 
@@ -131,9 +134,6 @@ public class Player : MonoBehaviour
         rb.angularVelocity = 0f;
     }
 
-    // =========================
-    // 🔹 Respawn inicial ou geral
-    // =========================
     public void Respawn()
     {
         ResetarEstado();
@@ -146,19 +146,33 @@ public class Player : MonoBehaviour
         bloqueado = false;
     }
 
-    // =========================
-    // 🔹 Voltar para spawn (usado pelo Spike)
-    // =========================
     public void VoltarParaSpawn()
     {
-        // Toca som de morte
         if (somDoJogador != null)
             somDoJogador.TocarSomMorte();
 
-        // Reseta Rigidbody
         ResetarEstado();
-
-        // Reseta posição sem mexer na hierarquia da arma
         transform.position = posicaoInicial;
+    }
+
+    // =========================
+    // 🔹 Novo método: passos
+    // =========================
+    private void ControlarSomPassos()
+    {
+        if (somDoJogador == null) return;
+
+        bool andando = estaNoChao && Mathf.Abs(horizontalInput) > 0.1f;
+
+        if (andando)
+        {
+            if (!somDoJogador.audioSourcePassos.isPlaying)
+                somDoJogador.audioSourcePassos.Play();
+        }
+        else
+        {
+            if (somDoJogador.audioSourcePassos.isPlaying)
+                somDoJogador.audioSourcePassos.Stop();
+        }
     }
 }

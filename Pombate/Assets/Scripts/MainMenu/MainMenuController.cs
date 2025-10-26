@@ -75,7 +75,7 @@ public class MainMenuController : MonoBehaviour
     public void AlterarVolumeSons(float valor)
     {
         float volumeDB = Mathf.Log10(Mathf.Clamp(valor, 0.0001f, 1)) * 20;
-        mixer.SetFloat("VolumeSons", volumeDB);
-        PlayerPrefs.SetFloat("VolumeSons", valor);
+        mixer.SetFloat("VolumeSom", volumeDB);
+        PlayerPrefs.SetFloat("VolumeSom", valor);
     }
 }
