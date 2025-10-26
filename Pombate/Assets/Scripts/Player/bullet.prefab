@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73189a73c9479945b021a06b937df0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  somQuebraBloco: {fileID: 8300000, guid: 5fff31530f91c644286c04a383b5e745, type: 3}
 --- !u!96 &6083504051106323552
 TrailRenderer:
   serializedVersion: 3

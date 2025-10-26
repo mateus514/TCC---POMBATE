@@ -32,15 +32,10 @@ public class SomDoJogador : MonoBehaviour
     // ----------------------------
     // Passos
     // ----------------------------
-    public void ComecarPassos()
+    public void TocarSomPersonalizado(AudioClip clip)
     {
-        if (!audioSourcePassos.isPlaying)
-            audioSourcePassos.Play();
+        if (audioSourceEfeitos != null && clip != null)
+            audioSourceEfeitos.PlayOneShot(clip);
     }
 
-    public void PararPassos()
-    {
-        if (audioSourcePassos.isPlaying)
-            audioSourcePassos.Stop();
-    }
 }
