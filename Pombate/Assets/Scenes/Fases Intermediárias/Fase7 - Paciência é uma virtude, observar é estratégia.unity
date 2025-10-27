@@ -8432,7 +8432,7 @@ MonoBehaviour:
   firePoint: {fileID: 465418314}
   bulletForce: 20
   maxBullets: 6
-  playerRb: {fileID: 0}
+  playerRb: {fileID: 228903571}
   recoilForce: 7
   somDoJogador: {fileID: 766206534}
 --- !u!1001 &465850587
