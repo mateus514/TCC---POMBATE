@@ -1,17 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     private bool bloqueado = false;
-    public bool jogoPausado = false;
-    public bool gameOver = false;
-
     public ParticleSystem dust;
-        
+
     private float horizontalInput;
     private Rigidbody2D rb;
 
@@ -21,9 +16,6 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform peDoPersonagem;
     [SerializeField] private LayerMask chaoLayer;
 
-    [SerializeField] private InputActionReference pointerPosition;
-
-    private Vector2 pointerInput;
     private bool estaNoChao;
 
     private Animator animator;
@@ -35,7 +27,12 @@ public class Player : MonoBehaviour
     private bool olhandoParaDireita = true;
 
     [Header("Sprite Renderer (do objeto visual)")]
-    [SerializeField] private SpriteRenderer spriteRenderer; // <- arraste o SpriteRenderer aqui no Inspector
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    [Header("Sons do Jogador")]
+    public SomDoJogador somDoJogador; // arraste aqui o objeto SomDoJogador
+
+    private Vector3 posicaoInicial;
 
     void Awake()
     {
@@ -46,77 +43,58 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        posicaoInicial = transform.position; // salva spawn inicial
         animator.SetInteger("state", (int)state);
-
-        // Sempre que o player "nascer" ou "ressurgir", toca a animação
         Respawn();
     }
 
     void Update()
     {
         if (bloqueado) return;
-        bool emDialogo = DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive;
-
-        if (emDialogo)
-        {
-            horizontalInput = 0;
-            weaponParent.PointerPosition = transform.position;
-            SetState(State.idle);
-            return;
-        }
-
-        pointerInput = GetPointerInput();
-        weaponParent.PointerPosition = pointerInput;
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
+        // Atualiza detecção de chão
+        estaNoChao = Physics2D.OverlapCircle(peDoPersonagem.position, 0.2f, chaoLayer);
+
+        // Pulo
         if (Input.GetKeyDown(KeyCode.Space) && estaNoChao)
         {
             rb.AddForce(Vector2.up * forcaPulo);
+
+            // 🔊 Som do pulo
+            if (somDoJogador != null)
+                somDoJogador.TocarSomPulo();
         }
-        
-        estaNoChao = Physics2D.OverlapCircle(peDoPersonagem.position, 0.2f, chaoLayer);
+
+        // Atualiza posição do mouse para arma
+        if (weaponParent != null)
+        {
+            Vector3 mousePos = Mouse.current.position.ReadValue();
+            mousePos.z = Camera.main.nearClipPlane;
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+            weaponParent.PointerPosition = worldPos;
+        }
+
+        // 🔹 Controle do som de passos
+        ControlarSomPassos();
 
         StateChange();
 
-        // Flip apenas do sprite visual
-        if (horizontalInput > 0 && !olhandoParaDireita)
-        {
-            Virar();
-        }
-        else if (horizontalInput < 0 && olhandoParaDireita)
-        {
-            Virar();
-        }
+        // Flip sprite
+        if (horizontalInput > 0 && !olhandoParaDireita) Virar();
+        else if (horizontalInput < 0 && olhandoParaDireita) Virar();
     }
 
     void FixedUpdate()
     {
         if (bloqueado)
         {
-            rb.velocity = Vector2.zero; // força total zero enquanto bloqueado
-            return;
-        }
-        
-        bool emDialogo = DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive;
-
-        if (emDialogo)
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.velocity = Vector2.zero;
             return;
         }
 
         rb.velocity = new Vector2(horizontalInput * velocidade, rb.velocity.y);
-    }
-
-    private Vector2 GetPointerInput()
-    {
-        Vector3 mousePos = pointerPosition != null
-            ? pointerPosition.action.ReadValue<Vector2>()
-            : Mouse.current.position.ReadValue();
-
-        mousePos.z = Camera.main.nearClipPlane;
-        return Camera.main.ScreenToWorldPoint(mousePos);
     }
 
     private void StateChange()
@@ -129,22 +107,12 @@ public class Player : MonoBehaviour
         else if (Mathf.Abs(rb.velocity.x) > 0.1f)
         {
             SetState(State.running);
-            if (!dust.isPlaying)
-                dust.Play();
+            if (!dust.isPlaying) dust.Play();
         }
         else
         {
             SetState(State.idle);
             dust.Stop();
-        }
-    }
-
-    public void ResetarEstado()
-    {
-        if (rb != null)
-        {
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0f;
         }
     }
 
@@ -154,31 +122,57 @@ public class Player : MonoBehaviour
         animator.SetInteger("state", (int)state);
     }
 
-    public void Morrer()
-    {
-        Scene sceneAtual = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(sceneAtual.name);
-    }
-
     private void Virar()
     {
         olhandoParaDireita = !olhandoParaDireita;
-
-        // Flipa apenas o sprite visual (não o transform nem filhos)
         spriteRenderer.flipX = !olhandoParaDireita;
     }
 
-    // --- NOVO MÉTODO ---
-    public void Respawn()
+    public void ResetarEstado()
     {
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
+    }
+
+    public void Respawn()
+    {
+        ResetarEstado();
         bloqueado = true;
-        // Ativa o trigger de respawn no Animator
         animator.SetTrigger("Respawn");
     }
+
     public void DesbloquearMovimento()
     {
-        bloqueado = false; // libera movimento
+        bloqueado = false;
+    }
+
+    public void VoltarParaSpawn()
+    {
+        if (somDoJogador != null)
+            somDoJogador.TocarSomMorte();
+
+        ResetarEstado();
+        transform.position = posicaoInicial;
+    }
+
+    // =========================
+    // 🔹 Novo método: passos
+    // =========================
+    private void ControlarSomPassos()
+    {
+        if (somDoJogador == null) return;
+
+        bool andando = estaNoChao && Mathf.Abs(horizontalInput) > 0.1f;
+
+        if (andando)
+        {
+            if (!somDoJogador.audioSourcePassos.isPlaying)
+                somDoJogador.audioSourcePassos.Play();
+        }
+        else
+        {
+            if (somDoJogador.audioSourcePassos.isPlaying)
+                somDoJogador.audioSourcePassos.Stop();
+        }
     }
 }
