@@ -4248,7 +4248,7 @@ MonoBehaviour:
   peDoPersonagem: {fileID: 1401830462}
   chaoLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   spriteRenderer: {fileID: 0}
   somDoJogador: {fileID: 766206534}
 --- !u!61 &228903573
@@ -6215,8 +6215,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Aperte qualquer tecla para tentar de novo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
-  m_sharedMaterial: {fileID: 3244816014042722807, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6994,6 +6994,10 @@ MonoBehaviour:
   characterRenderer: {fileID: 228903576}
   weaponRenderer: {fileID: 1491213991}
   crosshairPrefab: {fileID: 4152291258824729424, guid: e5bbe4522afaeae4fabac6375ce41c8e, type: 3}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  weaponLength: 1
 --- !u!1001 &403746233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12312,8 +12316,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 887c614611387274793c1aa570c48c1f, type: 2}
-  m_sharedMaterial: {fileID: 2633947434253590249, guid: 887c614611387274793c1aa570c48c1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17943,8 +17947,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Paci\xEAncia \xE9 uma virtude, observar \xE9 uma estrat\xE9gia."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
-  m_sharedMaterial: {fileID: 3244816014042722807, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -24421,7 +24425,7 @@ GameObject:
   - component: {fileID: 1496005118}
   - component: {fileID: 1496005117}
   - component: {fileID: 1496005116}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: BlocosDestruir
   m_TagString: destruir
   m_Icon: {fileID: 0}
