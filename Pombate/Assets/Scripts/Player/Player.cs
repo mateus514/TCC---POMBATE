@@ -1,14 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     private bool bloqueado = false;
-    public bool jogoPausado = false;
-    public bool gameOver = false;
+    public ParticleSystem dust;
 
     private float horizontalInput;
     private Rigidbody2D rb;
@@ -17,11 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] public float forcaPulo = 600f;
 
     [SerializeField] private Transform peDoPersonagem;
-    [SerializeField] private LayerMask chaoLayer; // Agora pode ter múltiplas layers!
+    [SerializeField] private LayerMask chaoLayer;
 
-    [SerializeField] private InputActionReference pointerPosition;
-
-    private Vector2 pointerInput;
     private bool estaNoChao;
 
     private Animator animator;
@@ -35,18 +29,21 @@ public class Player : MonoBehaviour
     [Header("Sprite Renderer (do objeto visual)")]
     [SerializeField] private SpriteRenderer spriteRenderer;
 
+    [Header("Sons do Jogador")]
+    public SomDoJogador somDoJogador; // arraste aqui o objeto SomDoJogador
+
+    private Vector3 posicaoInicial;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         weaponParent = GetComponentInChildren<WeaponParent>();
         animator = GetComponentInChildren<Animator>();
-        
-        // Garante detecção contínua para evitar atravessar blocos
-        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
     void Start()
     {
+        posicaoInicial = transform.position; // salva spawn inicial
         animator.SetInteger("state", (int)state);
         Respawn();
     }
@@ -54,69 +51,50 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (bloqueado) return;
-        bool emDialogo = DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive;
-
-        if (emDialogo)
-        {
-            horizontalInput = 0;
-            weaponParent.PointerPosition = transform.position;
-            SetState(State.idle);
-            return;
-        }
-
-        pointerInput = GetPointerInput();
-        weaponParent.PointerPosition = pointerInput;
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
+        // Atualiza detecção de chão
+        estaNoChao = Physics2D.OverlapCircle(peDoPersonagem.position, 0.2f, chaoLayer);
+
+        // Pulo
         if (Input.GetKeyDown(KeyCode.Space) && estaNoChao)
         {
             rb.AddForce(Vector2.up * forcaPulo);
+
+            // 🔊 Som do pulo
+            if (somDoJogador != null)
+                somDoJogador.TocarSomPulo();
         }
 
-        // Verifica se está no chão (agora inclui múltiplas layers)
-        estaNoChao = Physics2D.OverlapCircle(peDoPersonagem.position, 0.2f, chaoLayer);
+        // Atualiza posição do mouse para arma
+        if (weaponParent != null)
+        {
+            Vector3 mousePos = Mouse.current.position.ReadValue();
+            mousePos.z = Camera.main.nearClipPlane;
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+            weaponParent.PointerPosition = worldPos;
+        }
+
+        // 🔹 Controle do som de passos
+        ControlarSomPassos();
 
         StateChange();
 
-        // Flip apenas do sprite visual
-        if (horizontalInput > 0 && !olhandoParaDireita)
-        {
-            Virar();
-        }
-        else if (horizontalInput < 0 && olhandoParaDireita)
-        {
-            Virar();
-        }
+        // Flip sprite
+        if (horizontalInput > 0 && !olhandoParaDireita) Virar();
+        else if (horizontalInput < 0 && olhandoParaDireita) Virar();
     }
 
     void FixedUpdate()
     {
         if (bloqueado)
         {
-            rb.linearVelocity = Vector2.zero;
-            return;
-        }
-        
-        bool emDialogo = DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive;
-
-        if (emDialogo)
-        {
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            rb.velocity = Vector2.zero;
             return;
         }
 
-        rb.linearVelocity = new Vector2(horizontalInput * velocidade, rb.linearVelocity.y);
-    }
-
-    private Vector2 GetPointerInput()
-    {
-        Vector3 mousePos = pointerPosition != null
-            ? pointerPosition.action.ReadValue<Vector2>()
-            : Mouse.current.position.ReadValue();
-
-        mousePos.z = Camera.main.nearClipPlane;
-        return Camera.main.ScreenToWorldPoint(mousePos);
+        rb.velocity = new Vector2(horizontalInput * velocidade, rb.velocity.y);
     }
 
     private void StateChange()
@@ -124,23 +102,17 @@ public class Player : MonoBehaviour
         if (!estaNoChao)
         {
             SetState(State.jump);
+            dust.Stop();
         }
-        else if (Mathf.Abs(rb.linearVelocity.x) > 0.1f)
+        else if (Mathf.Abs(rb.velocity.x) > 0.1f)
         {
             SetState(State.running);
+            if (!dust.isPlaying) dust.Play();
         }
         else
         {
             SetState(State.idle);
-        }
-    }
-
-    public void ResetarEstado()
-    {
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector2.zero;
-            rb.angularVelocity = 0f;
+            dust.Stop();
         }
     }
 
@@ -150,28 +122,57 @@ public class Player : MonoBehaviour
         animator.SetInteger("state", (int)state);
     }
 
-    public void Morrer()
-    {
-        Scene sceneAtual = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(sceneAtual.name);
-    }
-
     private void Virar()
     {
         olhandoParaDireita = !olhandoParaDireita;
         spriteRenderer.flipX = !olhandoParaDireita;
     }
 
+    public void ResetarEstado()
+    {
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+    }
+
     public void Respawn()
     {
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
+        ResetarEstado();
         bloqueado = true;
         animator.SetTrigger("Respawn");
     }
-    
+
     public void DesbloquearMovimento()
     {
         bloqueado = false;
+    }
+
+    public void VoltarParaSpawn()
+    {
+        if (somDoJogador != null)
+            somDoJogador.TocarSomMorte();
+
+        ResetarEstado();
+        transform.position = posicaoInicial;
+    }
+
+    // =========================
+    // 🔹 Novo método: passos
+    // =========================
+    private void ControlarSomPassos()
+    {
+        if (somDoJogador == null) return;
+
+        bool andando = estaNoChao && Mathf.Abs(horizontalInput) > 0.1f;
+
+        if (andando)
+        {
+            if (!somDoJogador.audioSourcePassos.isPlaying)
+                somDoJogador.audioSourcePassos.Play();
+        }
+        else
+        {
+            if (somDoJogador.audioSourcePassos.isPlaying)
+                somDoJogador.audioSourcePassos.Stop();
+        }
     }
 }
