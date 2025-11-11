@@ -1242,9 +1242,9 @@ MonoBehaviour:
   peDoPersonagem: {fileID: 1401830462}
   chaoLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   pointerPosition: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 228903576}
 --- !u!95 &228903574
 Animator:
   serializedVersion: 7
@@ -1845,6 +1845,10 @@ MonoBehaviour:
   characterRenderer: {fileID: 228903576}
   weaponRenderer: {fileID: 1491213991}
   crosshairPrefab: {fileID: 4152291258824729424, guid: e5bbe4522afaeae4fabac6375ce41c8e, type: 3}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  weaponLength: 1
 --- !u!1001 &412402598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3086,7 +3090,7 @@ MonoBehaviour:
   firePoint: {fileID: 518716832}
   bulletForce: 20
   maxBullets: 6
-  playerRb: {fileID: 0}
+  playerRb: {fileID: 228903571}
   recoilForce: 7
 --- !u!1 &530413578
 GameObject:
@@ -4932,7 +4936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 228903572}
-  bulletCtrl: {fileID: 0}
+  bulletCtrl: {fileID: 518716833}
   tilemap: {fileID: 1496005118}
   gameOverScript: {fileID: 1109022045}
   pauseManagerScript: {fileID: 1109022047}
@@ -7985,7 +7989,7 @@ GameObject:
   - component: {fileID: 1496005118}
   - component: {fileID: 1496005117}
   - component: {fileID: 1496005116}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: BlocosDestruir
   m_TagString: destruir
   m_Icon: {fileID: 0}
@@ -10316,11 +10320,11 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 513750639}
     - targetCorrespondingSourceObject: {fileID: 1151288930614899430, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1081400565}
+      insertIndex: 3
+      addedObject: {fileID: 1144986402}
     - targetCorrespondingSourceObject: {fileID: 1151288930614899430, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1144986402}
+      addedObject: {fileID: 1081400565}
     - targetCorrespondingSourceObject: {fileID: 1402409848827460428, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
       insertIndex: 0
       addedObject: {fileID: 1877024933}

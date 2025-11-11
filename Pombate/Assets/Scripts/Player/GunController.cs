@@ -8,17 +8,26 @@ public class WeaponParent : MonoBehaviour
     public Vector2 PointerPosition { get; set; }
 
     [Header("Crosshair")]
-    public GameObject crosshairPrefab; // arrasta o prefab da mira aqui
+    public GameObject crosshairPrefab;
     private GameObject crosshairInstance;
     private Camera mainCam;
 
+    [Header("Collision Check")]
+    [SerializeField] private LayerMask wallLayer; // Layer dos blocos roxos
+    [SerializeField] private float weaponLength = 1f; // Tamanho da arma
+    
+    private Collider2D weaponCollider;
+    private Quaternion lastValidRotation;
+
     void Start()
     {
-        Cursor.visible = false;    // Esconde o cursor
-        Cursor.lockState = CursorLockMode.None; // Pode deixar desbloqueado para mover livremente
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
         mainCam = Camera.main;
 
-        // Instancia a mira no início
+        weaponCollider = GetComponent<Collider2D>();
+        lastValidRotation = transform.rotation;
+
         if (crosshairPrefab != null)
         {
             crosshairInstance = Instantiate(crosshairPrefab);
@@ -31,18 +40,35 @@ public class WeaponParent : MonoBehaviour
 
     void Update()
     {
-        // Se o jogo estiver pausado, não faz nada
         if (Time.timeScale == 0f)
             return;
 
-        // Se estiver em diálogo, também não faz nada
         if (DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive)
             return;
 
-        // --- Rotaciona a arma em direção ao mouse ---
+        // --- Rotaciona a arma com verificação de colisão ---
         Vector2 direction = (PointerPosition - (Vector2)transform.position).normalized;
-        transform.right = direction;
+        Quaternion targetRotation = Quaternion.FromToRotation(Vector3.right, direction);
+        
+        // Salva rotação atual
+        Quaternion previousRotation = transform.rotation;
+        
+        // Aplica nova rotação temporariamente
+        transform.rotation = targetRotation;
+        
+        // Verifica se a arma vai colidir com parede
+        if (VerificarColisaoArma())
+        {
+            // Se vai colidir, volta para última rotação válida
+            transform.rotation = lastValidRotation;
+        }
+        else
+        {
+            // Se não colide, salva como rotação válida
+            lastValidRotation = transform.rotation;
+        }
 
+        // Flip Y da arma
         Vector2 scale = transform.localScale;
         if (direction.x < 0)
         {
@@ -54,6 +80,7 @@ public class WeaponParent : MonoBehaviour
         }
         transform.localScale = scale;
 
+        // Sorting order
         if (transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
         {
             weaponRenderer.sortingOrder = characterRenderer.sortingOrder - 1;
@@ -67,8 +94,29 @@ public class WeaponParent : MonoBehaviour
         if (crosshairInstance != null && mainCam != null)
         {
             Vector3 mouseWorldPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPos.z = 0f; // trava no plano 2D
+            mouseWorldPos.z = 0f;
             crosshairInstance.transform.position = mouseWorldPos;
+        }
+    }
+
+    private bool VerificarColisaoArma()
+    {
+        // Checa se a ponta da arma vai colidir com parede
+        Vector2 weaponTip = (Vector2)transform.position + (Vector2)transform.right * weaponLength;
+        
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, weaponTip, wallLayer);
+        
+        return hit.collider != null;
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Visualiza a linha de checagem no editor
+        if (Application.isPlaying)
+        {
+            Gizmos.color = Color.red;
+            Vector2 weaponTip = (Vector2)transform.position + (Vector2)transform.right * weaponLength;
+            Gizmos.DrawLine(transform.position, weaponTip);
         }
     }
 }

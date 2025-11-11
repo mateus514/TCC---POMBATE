@@ -1844,7 +1844,7 @@ Transform:
   m_GameObject: {fileID: 228903568}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.6, y: -3.4, z: 0}
+  m_LocalPosition: {x: 10.9, y: -2.9, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1898,9 +1898,9 @@ MonoBehaviour:
   peDoPersonagem: {fileID: 1401830462}
   chaoLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   pointerPosition: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 228903576}
 --- !u!61 &228903573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2783,6 +2783,10 @@ MonoBehaviour:
   characterRenderer: {fileID: 228903576}
   weaponRenderer: {fileID: 1491213991}
   crosshairPrefab: {fileID: 4152291258824729424, guid: e5bbe4522afaeae4fabac6375ce41c8e, type: 3}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  weaponLength: 1
 --- !u!1001 &403746233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4307,7 +4311,7 @@ MonoBehaviour:
   firePoint: {fileID: 563456225}
   bulletForce: 20
   maxBullets: 6
-  playerRb: {fileID: 0}
+  playerRb: {fileID: 228903571}
   recoilForce: 7
 --- !u!1001 &569038366
 PrefabInstance:
@@ -10727,7 +10731,7 @@ GameObject:
   - component: {fileID: 1496005118}
   - component: {fileID: 1496005117}
   - component: {fileID: 1496005116}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: BlocosDestruir
   m_TagString: destruir
   m_Icon: {fileID: 0}
@@ -11779,7 +11783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 228903572}
-  bulletCtrl: {fileID: 0}
+  bulletCtrl: {fileID: 563456226}
   tilemap: {fileID: 1496005118}
   gameOverScript: {fileID: 1657622902}
   pauseManagerScript: {fileID: 1657622904}
@@ -14626,11 +14630,11 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 741887883}
     - targetCorrespondingSourceObject: {fileID: 1151288930614899430, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 487016208}
+      insertIndex: 3
+      addedObject: {fileID: 1491103593}
     - targetCorrespondingSourceObject: {fileID: 1151288930614899430, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1491103593}
+      addedObject: {fileID: 487016208}
     - targetCorrespondingSourceObject: {fileID: 1402409848827460428, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
       insertIndex: 0
       addedObject: {fileID: 1519176995}

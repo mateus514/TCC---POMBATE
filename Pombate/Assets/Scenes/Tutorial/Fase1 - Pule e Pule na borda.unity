@@ -1411,6 +1411,10 @@ MonoBehaviour:
   characterRenderer: {fileID: 228903576}
   weaponRenderer: {fileID: 1491213991}
   crosshairPrefab: {fileID: 4152291258824729424, guid: e5bbe4522afaeae4fabac6375ce41c8e, type: 3}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  weaponLength: 1
 --- !u!1001 &418150689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2496,11 +2500,11 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 1153829207}
     - targetCorrespondingSourceObject: {fileID: 1151288930614899430, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1090963380}
+      insertIndex: 3
+      addedObject: {fileID: 1305319014}
     - targetCorrespondingSourceObject: {fileID: 1151288930614899430, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1305319014}
+      addedObject: {fileID: 1090963380}
     - targetCorrespondingSourceObject: {fileID: 1402409848827460428, guid: 9564fb72d12f42a40abb1bee35f11493, type: 3}
       insertIndex: 0
       addedObject: {fileID: 962449088}
@@ -6282,7 +6286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -878.208, y: -455.95}
+  m_AnchoredPosition: {x: -574, y: -455.95}
   m_SizeDelta: {x: 163.584, y: 167.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305319015

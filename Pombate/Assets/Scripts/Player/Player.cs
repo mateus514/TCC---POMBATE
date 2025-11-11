@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] public float forcaPulo = 600f;
 
     [SerializeField] private Transform peDoPersonagem;
-    [SerializeField] private LayerMask chaoLayer;
+    [SerializeField] private LayerMask chaoLayer; // Agora pode ter múltiplas layers!
 
     [SerializeField] private InputActionReference pointerPosition;
 
@@ -33,20 +33,21 @@ public class Player : MonoBehaviour
     private bool olhandoParaDireita = true;
 
     [Header("Sprite Renderer (do objeto visual)")]
-    [SerializeField] private SpriteRenderer spriteRenderer; // <- arraste o SpriteRenderer aqui no Inspector
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         weaponParent = GetComponentInChildren<WeaponParent>();
         animator = GetComponentInChildren<Animator>();
+        
+        // Garante detecção contínua para evitar atravessar blocos
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
     void Start()
     {
         animator.SetInteger("state", (int)state);
-
-        // Sempre que o player "nascer" ou "ressurgir", toca a animação
         Respawn();
     }
 
@@ -72,9 +73,8 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(Vector2.up * forcaPulo);
         }
-        
-        
 
+        // Verifica se está no chão (agora inclui múltiplas layers)
         estaNoChao = Physics2D.OverlapCircle(peDoPersonagem.position, 0.2f, chaoLayer);
 
         StateChange();
@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
     {
         if (bloqueado)
         {
-            rb.linearVelocity = Vector2.zero; // força total zero enquanto bloqueado
+            rb.linearVelocity = Vector2.zero;
             return;
         }
         
@@ -159,23 +159,19 @@ public class Player : MonoBehaviour
     private void Virar()
     {
         olhandoParaDireita = !olhandoParaDireita;
-
-        // Flipa apenas o sprite visual (não o transform nem filhos)
         spriteRenderer.flipX = !olhandoParaDireita;
     }
 
-    // --- NOVO MÉTODO ---
     public void Respawn()
     {
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         bloqueado = true;
-        // Ativa o trigger de respawn no Animator
         animator.SetTrigger("Respawn");
     }
+    
     public void DesbloquearMovimento()
     {
-        bloqueado = false; // libera movimento
+        bloqueado = false;
     }
 }
-
