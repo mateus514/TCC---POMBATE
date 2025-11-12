@@ -38,9 +38,9 @@ public class MainMenuController : MonoBehaviour
     // ===============================
     // 🔘 BOTÕES DO MENU PRINCIPAL
     // ===============================
-    public void JogarTutorial()
+    public void SelecionarFase()
     {
-        SceneManager.LoadScene("Fase1");
+        SceneManager.LoadScene("LevelSelector");
     }
 
     public void SairDoJogo()
