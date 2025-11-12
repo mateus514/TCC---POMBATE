@@ -1262,7 +1262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948c2273890500e4d9d2f0e451a64711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaCena: 'Fase2 '
+  nomeDaCena: Fase2
 --- !u!95 &374547294
 Animator:
   serializedVersion: 7

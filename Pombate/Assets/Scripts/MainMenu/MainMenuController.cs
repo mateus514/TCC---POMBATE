@@ -40,7 +40,7 @@ public class MainMenuController : MonoBehaviour
     // ===============================
     public void JogarTutorial()
     {
-        SceneManager.LoadScene("Fase1 - Pule e Pule na borda");
+        SceneManager.LoadScene("Fase1");
     }
 
     public void SairDoJogo()
