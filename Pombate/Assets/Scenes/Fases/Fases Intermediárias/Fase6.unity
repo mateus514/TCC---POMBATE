@@ -2701,7 +2701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948c2273890500e4d9d2f0e451a64711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaCena: "Fase7 - Paci\xEAncia \xE9 uma virtude, observar \xE9 estrat\xE9gia"
+  nomeDaCena: 'Fase7 '
 --- !u!61 &393481411
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11989,8 +11989,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07c5eff1221eaf4dac4b316255a6b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  telaPreta: {fileID: 1233459212}
-  duracaoFade: 1
+  levelButtons: []
+  normalTextColor: {r: 0.3, g: 0.3, b: 0.8, a: 1}
+  selectedTextColor: {r: 0.5, g: 1, b: 1, a: 1}
+  lockedTextColor: {r: 0.2, g: 0.2, b: 0.3, a: 1}
+  outlineWidth: 4
+  columns: 4
+  levelSelectorSceneName: LevelSelector
+  proximaFase: {fileID: 0}
 --- !u!114 &1657622906
 MonoBehaviour:
   m_ObjectHideFlags: 0

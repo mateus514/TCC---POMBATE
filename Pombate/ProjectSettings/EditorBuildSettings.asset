@@ -6,37 +6,38 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Testes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Menus/MainMenu.unity
     guid: 53e6f3b5e08c02b42afbec38ac16f727
   - enabled: 1
-    path: Assets/Scenes/Tutorial/Fase1 - Pule e Pule na borda.unity
+    path: Assets/Scenes/Fases/Tutorial/Fase1.unity
     guid: 8b737649c085a604699d12f8c2cae7d1
   - enabled: 1
-    path: "Assets/Scenes/Tutorial/Fase2 - Roxo \xE9 pra atirar, mas n\xE3o em todos.unity"
+    path: Assets/Scenes/Fases/Tutorial/Fase2.unity
     guid: 6960d82fde43be744b2dd664496cfa59
   - enabled: 1
-    path: Assets/Scenes/Tutorial/Fase3 - Vai Subir Vai descer.unity
+    path: Assets/Scenes/Fases/Tutorial/Fase3.unity
     guid: b3a31dee299d6b9459db660e70d2d876
   - enabled: 1
-    path: "Assets/Scenes/Tutorial/Fase4 - Salto de f\xE9 1.unity"
+    path: Assets/Scenes/Fases/Tutorial/Fase4.unity
     guid: a0546c347d2c110488b157f98c7820ab
   - enabled: 1
-    path: "Assets/Scenes/Fases Intermedi\xE1rias/Fase5 -  Algumas balas abrem caminhos.unity"
+    path: "Assets/Scenes/Fases/Fases Intermedi\xE1rias/Fase5.unity"
     guid: e2032d95ad7e934439717b54ce2f771c
   - enabled: 1
-    path: "Assets/Scenes/Fases Intermedi\xE1rias/Fase6 - Algumas balas fecham caminhos.unity"
+    path: "Assets/Scenes/Fases/Fases Intermedi\xE1rias/Fase6.unity"
     guid: 9857c418fa592cb4cb5651b65fc96443
   - enabled: 1
-    path: "Assets/Scenes/Fases Intermedi\xE1rias/Fase8 - Seu pr\xF3ximo passo pode
-      ser seu \xFAltimo.unity"
+    path: "Assets/Scenes/Fases/Fases Intermedi\xE1rias/Fase8.unity"
     guid: b26f3d5675f36154b97afb1ef0a41f2f
   - enabled: 1
-    path: "Assets/Scenes/Fases Intermedi\xE1rias/Fase7 - Paci\xEAncia \xE9 uma virtude,
-      observar \xE9 estrat\xE9gia.unity"
+    path: "Assets/Scenes/Fases/Fases Intermedi\xE1rias/Fase7.unity"
     guid: a62e190139ac065469b64ad9282898ee
+  - enabled: 1
+    path: Assets/Scenes/Menus/LevelSelector.unity
+    guid: a775e7c598a97b84ab083a9deb81ab4e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0
