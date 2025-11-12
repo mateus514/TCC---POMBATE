@@ -1116,7 +1116,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1350253517}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: JogarTutorial
+        m_MethodName: SelecionarFase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
