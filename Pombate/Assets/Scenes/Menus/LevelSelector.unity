@@ -148,6 +148,18 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 5510762952120103741, guid: 9244c9a1e0eff2e4c80886b3fe0f7801, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
+    - target: {fileID: 5510762952120103741, guid: 9244c9a1e0eff2e4c80886b3fe0f7801, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7320931842833439580, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
+    - target: {fileID: 5510762952120103741, guid: 9244c9a1e0eff2e4c80886b3fe0f7801, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6368542767027797043, guid: 9244c9a1e0eff2e4c80886b3fe0f7801, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1325,8 +1337,6 @@ MonoBehaviour:
   lockedTextColor: {r: 0.2, g: 0.2, b: 0.3, a: 1}
   outlineWidth: 4
   columns: 4
-  levelSelectorSceneName: LevelSelector
-  proximaFase: {fileID: 0}
 --- !u!4 &959151447
 Transform:
   m_ObjectHideFlags: 0
@@ -1887,8 +1897,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SELETOR DE FASES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
+  m_sharedMaterial: {fileID: -7320931842833439580, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
