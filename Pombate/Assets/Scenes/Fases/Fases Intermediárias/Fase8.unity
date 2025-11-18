@@ -2213,6 +2213,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2282438384830233660, guid: 7697a49ea05824642b45a2fab61c81c4, type: 3}
   m_PrefabInstance: {fileID: 218682833}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &218682835 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2282438384830233658, guid: 7697a49ea05824642b45a2fab61c81c4, type: 3}
+  m_PrefabInstance: {fileID: 218682833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &219034990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2595,14 +2600,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7a691765c1cbd499dc143325d72048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dust: {fileID: 0}
+  dust: {fileID: 218682835}
   velocidade: 5
   forcaPulo: 200
   peDoPersonagem: {fileID: 1401830462}
   chaoLayer:
     serializedVersion: 2
     m_Bits: 136
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 228903576}
   somDoJogador: {fileID: 1204927460}
 --- !u!61 &228903573
 BoxCollider2D:
@@ -4224,7 +4229,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948c2273890500e4d9d2f0e451a64711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaCena: 
+  nomeDaCena: FC3
+  indiceAtualFase: 10
+  proximaFaseDesbloquear: 11
 --- !u!61 &393481411
 BoxCollider2D:
   m_ObjectHideFlags: 0

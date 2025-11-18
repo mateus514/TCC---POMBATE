@@ -1396,6 +1396,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeDaCena: Fase2
+  indiceAtualFase: 1
+  proximaFaseDesbloquear: 2
 --- !u!95 &374547294
 Animator:
   serializedVersion: 7

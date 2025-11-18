@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using TMPro; // Para TextMeshPro
+using TMPro;
 
 public class LevelSelector : MonoBehaviour
 {
@@ -23,7 +23,9 @@ public class LevelSelector : MonoBehaviour
     
     void Start()
     {
-        maxUnlockedLevel = PlayerPrefs.GetInt("MaxUnlockedLevel", 0);
+        // CARREGA O SAVE
+        maxUnlockedLevel = SaveSystem.Instance.GetMaxUnlockedLevel();
+        Debug.Log($"Nível máximo desbloqueado: {maxUnlockedLevel}");
         
         SetupLevels();
         UpdateSelection(0);
@@ -41,19 +43,16 @@ public class LevelSelector : MonoBehaviour
             int index = i;
             LevelButton btn = levelButtons[i];
             
-            // Configura se está desbloqueada
             btn.isUnlocked = i <= maxUnlockedLevel;
             
-            // Configura a imagem do botão com alpha 0
             Image img = btn.button.GetComponent<Image>();
             if (img != null)
             {
                 Color imgColor = img.color;
-                imgColor.a = 0f; // Alpha zero na imagem de fundo
+                imgColor.a = 0f;
                 img.color = imgColor;
             }
             
-            // Configura o Outline
             Outline outline = btn.button.GetComponent<Outline>();
             if (outline == null)
             {
@@ -63,22 +62,14 @@ public class LevelSelector : MonoBehaviour
             outline.effectDistance = new Vector2(outlineWidth, outlineWidth);
             outline.enabled = false;
             
-            // Configura a cor do texto do número
             Text numberText = btn.button.GetComponentInChildren<Text>();
             TextMeshProUGUI numberTMP = btn.button.GetComponentInChildren<TextMeshProUGUI>();
             
             Color textColor = btn.isUnlocked ? normalTextColor : lockedTextColor;
             
-            if (numberText != null)
-            {
-                numberText.color = textColor;
-            }
-            if (numberTMP != null)
-            {
-                numberTMP.color = textColor;
-            }
+            if (numberText != null) numberText.color = textColor;
+            if (numberTMP != null) numberTMP.color = textColor;
             
-            // Adiciona listener de clique
             btn.button.onClick.RemoveAllListeners();
             btn.button.onClick.AddListener(() => OnLevelClick(index));
         }
@@ -88,27 +79,15 @@ public class LevelSelector : MonoBehaviour
     {
         int newIndex = currentIndex;
         
-        // Navegação horizontal
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
-        {
             newIndex = Mathf.Min(currentIndex + 1, levelButtons.Count - 1);
-        }
         else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-        {
             newIndex = Mathf.Max(currentIndex - 1, 0);
-        }
-        
-        // Navegação vertical
         else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-        {
             newIndex = Mathf.Max(currentIndex - columns, 0);
-        }
         else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-        {
             newIndex = Mathf.Min(currentIndex + columns, levelButtons.Count - 1);
-        }
         
-        // Confirmar seleção
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
         {
             OnLevelClick(currentIndex);
@@ -116,47 +95,30 @@ public class LevelSelector : MonoBehaviour
         }
         
         if (newIndex != currentIndex)
-        {
             UpdateSelection(newIndex);
-        }
     }
     
     void UpdateSelection(int newIndex)
     {
-        // Remove outline e cor de seleção do botão anterior
         if (currentIndex >= 0 && currentIndex < levelButtons.Count)
         {
             LevelButton oldBtn = levelButtons[currentIndex];
-            
             Outline oldOutline = oldBtn.button.GetComponent<Outline>();
-            if (oldOutline != null)
-            {
-                oldOutline.enabled = false;
-            }
+            if (oldOutline != null) oldOutline.enabled = false;
             
-            // Restaura cor normal do texto
             Text oldText = oldBtn.button.GetComponentInChildren<Text>();
             TextMeshProUGUI oldTMP = oldBtn.button.GetComponentInChildren<TextMeshProUGUI>();
-            
             Color normalColor = oldBtn.isUnlocked ? normalTextColor : lockedTextColor;
             
-            if (oldText != null)
-            {
-                oldText.color = normalColor;
-            }
-            if (oldTMP != null)
-            {
-                oldTMP.color = normalColor;
-            }
+            if (oldText != null) oldText.color = normalColor;
+            if (oldTMP != null) oldTMP.color = normalColor;
         }
         
         currentIndex = newIndex;
         
-        // Adiciona outline e cor de seleção no novo botão
         if (currentIndex >= 0 && currentIndex < levelButtons.Count)
         {
             LevelButton newBtn = levelButtons[currentIndex];
-            
             Outline newOutline = newBtn.button.GetComponent<Outline>();
             if (newOutline != null)
             {
@@ -164,18 +126,11 @@ public class LevelSelector : MonoBehaviour
                 newOutline.effectColor = selectedTextColor;
             }
             
-            // Aplica cor de seleção no texto
             Text newText = newBtn.button.GetComponentInChildren<Text>();
             TextMeshProUGUI newTMP = newBtn.button.GetComponentInChildren<TextMeshProUGUI>();
             
-            if (newText != null)
-            {
-                newText.color = selectedTextColor;
-            }
-            if (newTMP != null)
-            {
-                newTMP.color = selectedTextColor;
-            }
+            if (newText != null) newText.color = selectedTextColor;
+            if (newTMP != null) newTMP.color = selectedTextColor;
         }
     }
     
@@ -185,33 +140,19 @@ public class LevelSelector : MonoBehaviour
         
         if (!btn.isUnlocked)
         {
-            // Feedback visual/sonoro de fase bloqueada
             Debug.Log("Fase bloqueada!");
-            // Adicione aqui: som de erro, animação de shake, etc
             return;
-        }
-        
-        // Carrega a cena
-        if (btn.isCutscene)
-        {
-            Debug.Log($"Carregando cutscene: {btn.sceneName}");
-        }
-        else
-        {
-            Debug.Log($"Carregando fase: {btn.sceneName}");
         }
         
         SceneManager.LoadScene(btn.sceneName);
     }
     
-    // Método para desbloquear próxima fase (chamar ao completar uma fase)
-    public void UnlockNextLevel()
+    public void ResetAllProgress()
     {
-        maxUnlockedLevel++;
-        PlayerPrefs.SetInt("MaxUnlockedLevel", maxUnlockedLevel);
-        PlayerPrefs.Save();
+        SaveSystem.Instance.ResetProgress();
+        maxUnlockedLevel = 0;
         SetupLevels();
-        UpdateSelection(currentIndex); // Atualiza a seleção atual
+        UpdateSelection(0);
     }
 }
 
