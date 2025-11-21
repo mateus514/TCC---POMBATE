@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelButtons:
   - button: {fileID: 1577521258}
-    sceneName: Fase1
+    sceneName: C1
     isCutscene: 1
     isUnlocked: 0
   - button: {fileID: 2050493860}
@@ -1309,7 +1309,7 @@ MonoBehaviour:
     isCutscene: 0
     isUnlocked: 0
   - button: {fileID: 236090906}
-    sceneName: 
+    sceneName: C2
     isCutscene: 1
     isUnlocked: 0
   - button: {fileID: 1767689937}
@@ -1329,7 +1329,7 @@ MonoBehaviour:
     isCutscene: 0
     isUnlocked: 0
   - button: {fileID: 420862369}
-    sceneName: 
+    sceneName: FC3
     isCutscene: 1
     isUnlocked: 0
   normalTextColor: {r: 0.3, g: 0.3, b: 0.8, a: 1}
@@ -2076,6 +2076,14 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 783957534}
+    - target: {fileID: 7384599917179223212, guid: 9244c9a1e0eff2e4c80886b3fe0f7801, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 959151445}
+    - target: {fileID: 7384599917179223212, guid: 9244c9a1e0eff2e4c80886b3fe0f7801, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8249869772408438304, guid: 9244c9a1e0eff2e4c80886b3fe0f7801, type: 3}
       propertyPath: m_Name
       value: LevelSelector (1)

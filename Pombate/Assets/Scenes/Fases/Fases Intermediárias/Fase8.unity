@@ -3748,7 +3748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 228903572}
-  bulletCtrl: {fileID: 0}
+  bulletCtrl: {fileID: 552498501}
   tilemap: {fileID: 1496005118}
   gameOverScript: {fileID: 342196508}
   pauseManagerScript: {fileID: 342196510}
@@ -3782,7 +3782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerFillImage: {fileID: 2089201171}
-  totalTime: 35
+  totalTime: 90
 --- !u!114 &342196510
 MonoBehaviour:
   m_ObjectHideFlags: 0

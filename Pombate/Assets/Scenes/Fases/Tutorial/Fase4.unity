@@ -5551,7 +5551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerFillImage: {fileID: 224715173}
-  totalTime: 20
+  totalTime: 25
 --- !u!114 &912713556
 MonoBehaviour:
   m_ObjectHideFlags: 0
