@@ -283,10 +283,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: seguir>>
+  m_text: "aperte espa\xE7o>>"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
+  m_sharedMaterial: {fileID: -7320931842833439580, guid: 7ab25452850a6db449fe6647b54ebb2f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -976,7 +976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a4bb3302f13a1045b70ff7c359db7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brightColor: {r: 0.5, g: 0.8, b: 1, a: 1}
+  brightColor: {r: 0.3529412, g: 0.8431373, b: 0.9686275, a: 1}
   brightDuration: 0.2
 --- !u!1 &1797298017
 GameObject:
