@@ -4230,7 +4230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeDaCena: FC3
-  indiceAtualFase: 10
+  indiceAtualFase: 9
   proximaFaseDesbloquear: 11
 --- !u!61 &393481411
 BoxCollider2D:

@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomeDaCena: Fase1
-  indiceAtualFase: 11
+  indiceAtualFase: 10
   proximaFaseDesbloquear: 1
 --- !u!4 &1678612835
 Transform:
