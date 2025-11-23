@@ -140,10 +140,29 @@ public class Player : MonoBehaviour
         bloqueado = true;
         animator.SetTrigger("Respawn");
     }
+    public void BloquearMovimento()
+    {
+        bloqueado = true;
+        rb.velocity = Vector2.zero;
+
+        // força idle
+        state = State.idle;
+        animator.SetInteger("state", (int)State.idle);
+
+        // pausa o animador
+        animator.speed = 0f;
+
+        // PARA O SOM DE PASSOS IMEDIATAMENTE
+        if (somDoJogador != null && somDoJogador.audioSourcePassos.isPlaying)
+            somDoJogador.audioSourcePassos.Stop();
+    }
 
     public void DesbloquearMovimento()
     {
         bloqueado = false;
+
+        // destrava o Animator
+        animator.speed = 1f;
     }
 
     public void VoltarParaSpawn()

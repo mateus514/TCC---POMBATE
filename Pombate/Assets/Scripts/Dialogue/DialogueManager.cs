@@ -58,6 +58,8 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         isDialogueActive = true;
+        
+        FindObjectOfType<Player>().BloquearMovimento();
 
         dialogueArea.text = "";
         lines.Clear();
@@ -123,6 +125,9 @@ public class DialogueManager : MonoBehaviour
 
         dialogueCanvasGroup.alpha = 0f;
         isDialogueActive = false;
+        
+        FindObjectOfType<Player>().DesbloquearMovimento();
+
 
         // 🔹 destrói o objeto quando o diálogo terminar
         Destroy(gameObject);

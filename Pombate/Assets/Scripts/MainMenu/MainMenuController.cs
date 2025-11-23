@@ -15,6 +15,9 @@ public class MainMenuController : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;  // Libera o cursor
+        Cursor.visible = true;                  // Mostra o cursor
+
         // Garante que o painel de opções comece escondido
         painelOpcoes.SetActive(false);
 
