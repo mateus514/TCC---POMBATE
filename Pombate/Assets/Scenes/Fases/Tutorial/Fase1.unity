@@ -2670,7 +2670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &575507859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10099,17 +10099,22 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: Chefzinho
+        name: Chefe
         icon: {fileID: -7441984854685431606, guid: 4594b0f733f25b84c85739d6034d9c2c, type: 3}
       line: "Passou tanto tempo na caixa, mas ainda lembra como se move, n\xE9?"
     - character:
-        name: Chefzinho
+        name: Chefe
         icon: {fileID: -7441984854685431606, guid: 4594b0f733f25b84c85739d6034d9c2c, type: 3}
       line: Ah meu Deus.
     - character:
-        name: Chefzinho
+        name: Chefe
         icon: {fileID: -7441984854685431606, guid: 4594b0f733f25b84c85739d6034d9c2c, type: 3}
-      line: "Use SPACE para pular, e AD para se mexer. Vamos! R\xE1pido!"
+      line: 'Use SPACE para pular, AD para se mexer. '
+    - character:
+        name: Chefe
+        icon: {fileID: -7441984854685431606, guid: 4594b0f733f25b84c85739d6034d9c2c, type: 3}
+      line: "Lembre tamb\xE9m de atirar com o bot\xE3o esquerdo do mouse, e cuidado
+        com o recuo! "
     - character:
         name: Pombate
         icon: {fileID: -1545765296860906538, guid: 8ac3a8101a2a5234aa5b62003b82aaee, type: 3}
@@ -10123,7 +10128,7 @@ Transform:
   m_GameObject: {fileID: 1090963378}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -994.12, y: -551.16, z: 0}
+  m_LocalPosition: {x: -970.1, y: -544, z: 0}
   m_LocalScale: {x: 0.2023, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

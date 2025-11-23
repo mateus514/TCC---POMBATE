@@ -893,7 +893,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &1557098183
 GameObject:
@@ -1089,7 +1089,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1498055599}
   - {fileID: 2078558157}
+  - {fileID: 1294823034}
   - {fileID: 1132331534}
   - {fileID: 1557098186}
   - {fileID: 1997403831}
-  - {fileID: 1294823034}
