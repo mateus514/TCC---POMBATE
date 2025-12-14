@@ -9467,6 +9467,7 @@ MonoBehaviour:
   player: {fileID: 228903572}
   bulletCtrl: {fileID: 1068643222}
   tilemap: {fileID: 1496005118}
+  timeBar: {fileID: 943050750}
   gameOverScript: {fileID: 943050751}
   pauseManagerScript: {fileID: 943050749}
   dialogueScript: {fileID: 1996796328}
@@ -10118,10 +10119,15 @@ MonoBehaviour:
     - character:
         name: Chefe
         icon: {fileID: -7441984854685431606, guid: 4594b0f733f25b84c85739d6034d9c2c, type: 3}
-      line: "Lembre tamb\xE9m de atirar com o bot\xE3o esquerdo do mouse, e cuidado
-        com o recuo!"
+      line: "Lembre tamb\xE9m de atirar com o bot\xE3o esquerdo do mouse, \ne cuidado
+        com o recuo!  Aperte R para recarregar.\n"
     - character:
-        name: Pombate
+        name: Chefe
+        icon: {fileID: -7441984854685431606, guid: 4594b0f733f25b84c85739d6034d9c2c, type: 3}
+      line: "Mas fique esperto! Recarregar  vai te fazer perder o progresso da fase.
+        N\xE3o desista! Tente at\xE9 o \xFAltimo segundo."
+    - character:
+        name: P. Magnum
         icon: {fileID: -1545765296860906538, guid: 8ac3a8101a2a5234aa5b62003b82aaee, type: 3}
       line: Pru
 --- !u!4 &1090963380

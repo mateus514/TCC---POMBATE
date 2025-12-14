@@ -8,6 +8,7 @@ public class ResetFase : MonoBehaviour
     public Player player;
     public BulletController bulletCtrl;
     public Tilemap tilemap;
+    public TimeBar timeBar;
 
     [Header("Scripts de Estado")]
     public GameOverManager gameOverScript;
@@ -74,5 +75,8 @@ public class ResetFase : MonoBehaviour
         {
             tilemap.SetTile(kvp.Key, kvp.Value);
         }
+        
+        //Reset Timer
+        timeBar.ResetTimer();
     }
 }

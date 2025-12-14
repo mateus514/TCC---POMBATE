@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pombate,icon_0: -5715377239606459682
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

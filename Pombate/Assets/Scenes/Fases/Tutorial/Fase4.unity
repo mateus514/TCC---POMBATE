@@ -1814,6 +1814,7 @@ MonoBehaviour:
   player: {fileID: 0}
   bulletCtrl: {fileID: 0}
   tilemap: {fileID: 0}
+  timeBar: {fileID: 0}
   gameOverScript: {fileID: 0}
   pauseManagerScript: {fileID: 0}
   dialogueScript: {fileID: 0}
@@ -5519,6 +5520,7 @@ MonoBehaviour:
   player: {fileID: 228903572}
   bulletCtrl: {fileID: 1068643222}
   tilemap: {fileID: 1496005118}
+  timeBar: {fileID: 912713555}
   gameOverScript: {fileID: 912713554}
   pauseManagerScript: {fileID: 912713556}
   dialogueScript: {fileID: 866123175}

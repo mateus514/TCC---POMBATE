@@ -40,12 +40,13 @@ public class TimeBar : MonoBehaviour
         }
     }
 
-    /*public void ResetTimer()
+    public void ResetTimer()
     {
+        Debug.Log("ResetTimer chamado");
         timeLeft = totalTime;
         timerFillImage.fillAmount = 1f;
         isRunning = true;
-    }*/
+    }
 
     public void StopTimer()
     {
